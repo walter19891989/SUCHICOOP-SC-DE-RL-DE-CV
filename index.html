@@ -12,6 +12,7 @@ margin: 0;
 font-family: 'Montserrat', sans-serif;
 background: #0a0a0a;
 color: white;
+overflow-x: hidden;
 }
 
 /* NAV /
@@ -20,7 +21,7 @@ padding: 20px 40px;
 }
 
 .nav img {
-width: 70px;
+height: 50px;
 }
 
 / HERO /
@@ -29,23 +30,29 @@ height: 100vh;
 display: flex;
 align-items: center;
 padding: 0 40px;
+background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1559526324-593bc073d938');
+background-size: cover;
+background-position: center;
 }
 
-.hero h1 {
-font-size: 60px;
+.hero-content {
 max-width: 600px;
 }
 
+.hero h1 {
+font-size: 65px;
+font-weight: 800;
+}
+
 .hero p {
-color: #bbb;
-margin-top: 20px;
-max-width: 500px;
+color: #ccc;
+margin-top: 15px;
 }
 
 .btn {
 margin-top: 30px;
 padding: 15px 40px;
-background: #00ff88;
+background: linear-gradient(90deg, #00ff88, #00c853);
 border: none;
 border-radius: 40px;
 font-weight: 600;
@@ -59,6 +66,14 @@ flex-wrap: wrap;
 align-items: center;
 padding: 100px 40px;
 border-top: 1px solid #1a1a1a;
+opacity: 0;
+transform: translateY(40px);
+transition: all 0.8s ease;
+}
+
+.section.show {
+opacity: 1;
+transform: translateY(0);
 }
 
 .section.reverse {
@@ -72,7 +87,6 @@ min-width: 300px;
 
 .text h2 {
 font-size: 40px;
-margin-bottom: 15px;
 }
 
 .text p {
@@ -106,16 +120,35 @@ gap: 30px;
 }
 
 .card {
-background: #111;
+background: linear-gradient(145deg, #111, #1a1a1a);
 padding: 35px;
 border-radius: 20px;
 border: 1px solid #222;
+box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 transition: 0.3s;
 }
 
 .card:hover {
 border-color: #00ff88;
-transform: translateY(-8px);
+transform: translateY(-10px) scale(1.02); }
+
+/ NUMEROS /
+.stats {
+padding: 80px 40px;
+background: #111;
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+text-align: center;
+}
+
+.stat h3 {
+font-size: 45px;
+color: #00ff88;
+}
+
+.stat p {
+color: #aaa;
 }
 
 / CONTACTO /
@@ -148,6 +181,7 @@ color: black;
 padding: 15px;
 border-radius: 50%;
 font-weight: bold;
+text-decoration: none;
 }
 
 / RESPONSIVE */
@@ -175,8 +209,8 @@ font-size: 40px;
 
 <!-- HERO -->
 <div class="hero">
-<div>
-<h1>Finanzas modernas con respaldo real</h1> <p>Créditos, ahorro y soluciones diseñadas para tu crecimiento económico.</p>
+<div class="hero-content">
+<h1>Finanzas modernas con respaldo real</h1> <p>Impulsamos tu crecimiento con soluciones financieras seguras.</p>
 
 <button class="btn" onclick="window.location.href='https://wa.me/50375678767'">
 Solicitar información
@@ -184,32 +218,50 @@ Solicitar información
 </div>
 </div>
 
+<!-- NUMEROS IMPACTO -->
+<div class="stats">
+<div class="stat">
+<h3>+500</h3>
+<p>Clientes atendidos</p>
+</div>
+
+<div class="stat">
+<h3>+1M</h3>
+<p>En créditos otorgados</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Compromiso y respaldo</p>
+</div>
+</div>
+
 <!-- QUIENES SOMOS -->
 <div class="section">
 <div class="text">
 <h2>Quiénes Somos</h2>
-<p>Somos una institución enfocada en brindar soluciones financieras responsables, impulsando el desarrollo económico mediante servicios de crédito y ahorro accesibles.</p> </div>
+<p>Somos una institución enfocada en brindar soluciones financieras responsables.</p> </div>
 
 <div class="box">
-<p>Nos caracterizamos por nuestra cercanía, transparencia y compromiso con cada cliente, ofreciendo respaldo real y confianza en cada operación.</p> </div> </div>
+<p>Comprometidos con la confianza, cercanía y transparencia en cada servicio.</p> </div> </div>
 
 <!-- MISION -->
 <div class="section reverse">
 <div class="text">
 <h2>Misión</h2>
-<p>Brindar servicios financieros confiables y accesibles, promoviendo el crecimiento económico de nuestros clientes mediante soluciones responsables.</p> </div>
+<p>Brindar servicios financieros confiables y accesibles.</p> </div>
 
 <div class="box">
-<p>Facilitamos el acceso a crédito y ahorro con procesos claros, rápidos y seguros.</p> </div> </div>
+<p>Facilitamos crédito y ahorro de forma segura.</p> </div> </div>
 
 <!-- VISION -->
 <div class="section">
 <div class="text">
 <h2>Visión</h2>
-<p>Ser una institución líder en servicios financieros, reconocida por su solidez, confianza y compromiso.</p> </div>
+<p>Ser una institución líder en servicios financieros.</p> </div>
 
 <div class="box">
-<p>Buscamos expandir nuestro impacto siendo referencia en soluciones financieras modernas.</p> </div> </div>
+<p>Reconocidos por nuestra solidez y compromiso.</p> </div> </div>
 
 <!-- SERVICIOS -->
 <div class="services">
@@ -219,25 +271,27 @@ Solicitar información
 
 <div class="card">
 <h3>Créditos de Consumo</h3>
-<p>Financiamiento ágil para necesidades personales.</p> </div>
+<p>Financiamiento ágil.</p>
+</div>
 
 <div class="card">
 <h3>Créditos para Vivienda</h3>
-<p>Opciones accesibles para adquirir tu hogar.</p> </div>
+<p>Opciones accesibles.</p>
+</div>
 
 <div class="card">
 <h3>Créditos para Comercio</h3>
-<p>Impulsá tu negocio con capital.</p>
+<p>Impulsá tu negocio.</p>
 </div>
 
 <div class="card">
 <h3>Cuentas de Ahorro</h3>
-<p>Seguridad total para tu dinero.</p>
+<p>Seguridad total.</p>
 </div>
 
 <div class="card">
 <h3>Depósitos a Plazo</h3>
-<p>Rendimientos estables y seguros.</p>
+<p>Rendimientos seguros.</p>
 </div>
 
 </div>
@@ -247,10 +301,10 @@ Solicitar información
 <div class="section reverse">
 <div class="text">
 <h2>Cumplimiento Legal</h2>
-<p>Nuestra institución opera bajo principios de transparencia y cumplimiento normativo.</p> </div>
+<p>Operamos bajo normativas legales vigentes.</p> </div>
 
 <div class="box">
-<p>Nos apegamos a las leyes de la República de El Salvador, garantizando seguridad y respaldo en cada operación.</p> </div> </div>
+<p>Nos apegamos a las leyes de la República de El Salvador.</p> </div> </div>
 
 <!-- CONTACTO -->
 <div class="contact">
@@ -275,6 +329,12 @@ width="100%" height="350"></iframe>
 </div>
 
 <a href="https://wa.me/50375678767" class="whatsapp">💬</a>
+
+<!-- ANIMACIONES -->
+<script>
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => { sections.forEach(sec => { const top = sec.getBoundingClientRect().top; if(top < window.innerHeight - 100){ sec.classList.add('show'); } }); }); </script>
 
 </body>
 </html>
