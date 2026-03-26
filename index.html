@@ -4,25 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>SUCHICOOP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 body {
 margin: 0;
-font-family: 'Inter', sans-serif;
-background: #0b0b0b;
+font-family: 'Montserrat', sans-serif;
+background: #0a0a0a;
 color: white;
 }
 
 /* NAV /
 .nav {
 padding: 20px 40px;
-display: flex;
-align-items: center;
 }
 
 .nav img {
-width: 60px;
+width: 70px;
 }
 
 / HERO /
@@ -33,82 +31,102 @@ align-items: center;
 padding: 0 40px;
 }
 
-.hero-content {
+.hero h1 {
+font-size: 60px;
 max-width: 600px;
 }
 
-.hero h1 {
-font-size: 55px;
-line-height: 1.1;
-}
-
 .hero p {
-margin-top: 15px;
-color: #aaa;
-font-size: 18px;
+color: #bbb;
+margin-top: 20px;
+max-width: 500px;
 }
 
 .btn {
 margin-top: 30px;
-padding: 15px 35px;
+padding: 15px 40px;
 background: #00ff88;
 border: none;
-border-radius: 30px;
+border-radius: 40px;
+font-weight: 600;
 cursor: pointer;
 }
 
-/ BLOQUES /
-.block {
-padding: 120px 40px;
+/ SECCIONES /
+.section {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+padding: 100px 40px;
 border-top: 1px solid #1a1a1a;
-opacity: 0;
-transform: translateY(40px);
-transition: all 0.8s ease;
 }
 
-.block.show {
-opacity: 1;
-transform: translateY(0);
+.section.reverse {
+flex-direction: row-reverse;
 }
 
-.block h2 {
+.text {
+flex: 1;
+min-width: 300px;
+}
+
+.text h2 {
 font-size: 40px;
+margin-bottom: 15px;
 }
 
-.block p {
+.text p {
 color: #aaa;
 max-width: 500px;
 }
 
-/ SERVICIOS /
-.services {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
-margin-top: 50px;
+.box {
+flex: 1;
+min-width: 300px;
+background: #111;
+padding: 40px;
+border-radius: 25px;
+border: 1px solid #222;
 }
 
-.service {
-padding: 40px;
+/ SERVICIOS /
+.services {
+padding: 100px 40px;
+}
+
+.services h2 {
+font-size: 40px;
+margin-bottom: 40px;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+}
+
+.card {
 background: #111;
-border-radius: 25px;
-border: 1px solid #1f1f1f;
+padding: 35px;
+border-radius: 20px;
+border: 1px solid #222;
 transition: 0.3s;
 }
 
-.service:hover {
+.card:hover {
 border-color: #00ff88;
-transform: translateY(-10px);
+transform: translateY(-8px);
 }
 
 / CONTACTO /
 .contact {
+padding: 100px 40px;
 text-align: center;
+background: #111;
 }
 
-/ MAPA /
 .map {
-margin-top: 40px;
+margin-top: 30px;
 border-radius: 20px;
 overflow: hidden;
 }
@@ -117,10 +135,10 @@ overflow: hidden;
 .footer {
 padding: 30px;
 text-align: center;
-color: #777;
+color: #666;
 }
 
-/ WHATSAPP */
+/ WHATSAPP /
 .whatsapp {
 position: fixed;
 bottom: 20px;
@@ -129,8 +147,20 @@ background: #00ff88;
 color: black;
 padding: 15px;
 border-radius: 50%;
-text-decoration: none;
 font-weight: bold;
+}
+
+/ RESPONSIVE */
+@media(max-width:768px){
+.section {
+flex-direction: column;
+}
+.section.reverse {
+flex-direction: column;
+}
+.hero h1 {
+font-size: 40px;
+}
 }
 </style>
 
@@ -145,8 +175,8 @@ font-weight: bold;
 
 <!-- HERO -->
 <div class="hero">
-<div class="hero-content">
-<h1>Impulsamos tu crecimiento financiero</h1> <p>Soluciones modernas en crédito, ahorro y respaldo económico.</p>
+<div>
+<h1>Finanzas modernas con respaldo real</h1> <p>Créditos, ahorro y soluciones diseñadas para tu crecimiento económico.</p>
 
 <button class="btn" onclick="window.location.href='https://wa.me/50375678767'">
 Solicitar información
@@ -154,31 +184,58 @@ Solicitar información
 </div>
 </div>
 
+<!-- QUIENES SOMOS -->
+<div class="section">
+<div class="text">
+<h2>Quiénes Somos</h2>
+<p>Somos una institución enfocada en brindar soluciones financieras responsables, impulsando el desarrollo económico mediante servicios de crédito y ahorro accesibles.</p> </div>
+
+<div class="box">
+<p>Nos caracterizamos por nuestra cercanía, transparencia y compromiso con cada cliente, ofreciendo respaldo real y confianza en cada operación.</p> </div> </div>
+
+<!-- MISION -->
+<div class="section reverse">
+<div class="text">
+<h2>Misión</h2>
+<p>Brindar servicios financieros confiables y accesibles, promoviendo el crecimiento económico de nuestros clientes mediante soluciones responsables.</p> </div>
+
+<div class="box">
+<p>Facilitamos el acceso a crédito y ahorro con procesos claros, rápidos y seguros.</p> </div> </div>
+
+<!-- VISION -->
+<div class="section">
+<div class="text">
+<h2>Visión</h2>
+<p>Ser una institución líder en servicios financieros, reconocida por su solidez, confianza y compromiso.</p> </div>
+
+<div class="box">
+<p>Buscamos expandir nuestro impacto siendo referencia en soluciones financieras modernas.</p> </div> </div>
+
 <!-- SERVICIOS -->
-<div class="block">
-<h2>Servicios Financieros</h2>
-<p>Soluciones diseñadas para tu estabilidad y crecimiento.</p>
-
 <div class="services">
+<h2>Servicios Financieros</h2>
 
-<div class="service">
+<div class="grid">
+
+<div class="card">
 <h3>Créditos de Consumo</h3>
 <p>Financiamiento ágil para necesidades personales.</p> </div>
 
-<div class="service">
+<div class="card">
 <h3>Créditos para Vivienda</h3>
 <p>Opciones accesibles para adquirir tu hogar.</p> </div>
 
-<div class="service">
+<div class="card">
 <h3>Créditos para Comercio</h3>
-<p>Impulsá tu negocio con respaldo financiero.</p> </div>
+<p>Impulsá tu negocio con capital.</p>
+</div>
 
-<div class="service">
+<div class="card">
 <h3>Cuentas de Ahorro</h3>
 <p>Seguridad total para tu dinero.</p>
 </div>
 
-<div class="service">
+<div class="card">
 <h3>Depósitos a Plazo</h3>
 <p>Rendimientos estables y seguros.</p>
 </div>
@@ -186,8 +243,17 @@ Solicitar información
 </div>
 </div>
 
+<!-- CUMPLIMIENTO LEGAL -->
+<div class="section reverse">
+<div class="text">
+<h2>Cumplimiento Legal</h2>
+<p>Nuestra institución opera bajo principios de transparencia y cumplimiento normativo.</p> </div>
+
+<div class="box">
+<p>Nos apegamos a las leyes de la República de El Salvador, garantizando seguridad y respaldo en cada operación.</p> </div> </div>
+
 <!-- CONTACTO -->
-<div class="block contact">
+<div class="contact">
 <h2>Contáctanos</h2>
 
 <p>Barrio La Cruz, Avenida Rafael Palacios, N°113</p> <p>Suchitoto, Cuscatlán, El Salvador</p>
@@ -198,7 +264,8 @@ WhatsApp
 
 <div class="map">
 <iframe src="https://maps.google.com/maps?q=Suchitoto%20Cuscatlán%20El%20Salvador&t=&z=15&ie=UTF8&iwloc=&output=embed"
-width="100%" height="350" style="border:0;"></iframe> </div>
+width="100%" height="350"></iframe>
+</div>
 
 </div>
 
@@ -209,22 +276,5 @@ width="100%" height="350" style="border:0;"></iframe> </div>
 
 <a href="https://wa.me/50375678767" class="whatsapp">💬</a>
 
-<!-- SCRIPT ANIMACIONES -->
-<script>
-const blocks = document.querySelectorAll('.block');
-
-window.addEventListener('scroll', () => { blocks.forEach(block => { const top = block.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 100){
-block.classList.add('show');
-}
-});
-});
-</script>
-
 </body>
 </html>
-
-
-
-
