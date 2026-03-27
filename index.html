@@ -222,6 +222,7 @@ if(monto && plazo && tasa){
 let interes = monto * (tasa/100) * (plazo/12); let total = monto + interes;
 
 document.getElementById("resultado").innerHTML =
+  animadorDinero(total);
 "💰 Intereses generados: $" + interes.toFixed(2) +
 "<br>🏦 Total al vencimiento: $" + total.toFixed(2); } } </script>
 
@@ -498,6 +499,27 @@ setTimeout(animar, 30);
 animar();
 
 });
+</script>
+<script>
+function animarDinero(objetivo){
+
+let contador = document.getElementById("contador");
+let valor = 0;
+
+let intervalo = setInterval(() => {
+
+valor += objetivo / 50;
+
+if(valor >= objetivo){
+valor = objetivo;
+clearInterval(intervalo);
+}
+
+contador.innerHTML = "$" + Math.floor(valor);
+
+}, 30);
+
+}
 </script>
 
 </a></body>
