@@ -463,56 +463,5 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 z-index:999;
 ">
 💬
-  <script>
-document.addEventListener("DOMContentLoaded", function(){
-
-var contador = document.getElementById("contador");
-var valor = 0;
-var objetivo = 3000;
-
-function animar(){
-if(valor < objetivo){
-valor += 10;
-contador.innerHTML = "$" + valor;
-setTimeout(animar, 30);
-}
-}
-
-animar();
-
-});
-<script>
-function animarDineroDesdeResultado(){
-
-let texto = document.getElementById("resultado").innerText;
-
-// Extrae el número del total
-let numero = texto.match(/\$([0-9]+)/g);
-
-if(numero && numero.length > 1){
-
-let total = parseInt(numero[1].replace("$",""));
-
-let contador = document.getElementById("contador");
-let valor = 0;
-
-let intervalo = setInterval(() => {
-
-valor += total / 50;
-
-if(valor >= total){
-valor = total;
-clearInterval(intervalo);
-}
-
-contador.innerHTML = "$" + Math.floor(valor);
-
-}, 30);
-
-}
-
-}
-</script>
-
 </a></body>
 </html>
