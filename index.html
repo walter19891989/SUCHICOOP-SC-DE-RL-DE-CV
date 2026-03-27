@@ -90,24 +90,7 @@ border:1px solid #00ff88;
 box-shadow:0 0 20px rgba(0,255,136,0.4);
 }</style>
 </head>
-<script>
-window.onload=function(){
-let contador = document.getElementById("contador");
-let valor = 0;
-let objetivo = 3000; // CAMBIÁ ESTE VALOR
-
-let intervalo = setInterval(() => {
-valor += 10;
-
-if(valor >= objetivo){
-valor = objetivo;
-clearInterval(intervalo);
-}
-
-contador.innerHTML = "$" + valor;
-}, 30);
-</script>
-
+  
 <body>
 
 <div class="hero" style="
