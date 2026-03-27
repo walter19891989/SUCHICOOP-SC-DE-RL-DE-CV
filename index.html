@@ -222,7 +222,7 @@ if(monto && plazo && tasa){
 let interes = monto * (tasa/100) * (plazo/12); let total = monto + interes;
 
 document.getElementById("resultado").innerHTML =
-  animadorDinero(total);
+animadorDinero(total);
 "💰 Intereses generados: $" + interes.toFixed(2) +
 "<br>🏦 Total al vencimiento: $" + total.toFixed(2); } } </script>
 
