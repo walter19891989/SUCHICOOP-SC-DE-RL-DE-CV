@@ -498,25 +498,35 @@ setTimeout(animar, 30);
 animar();
 
 });
-</script>
 <script>
-function animarDinero(objetivo){
+function animarDineroDesdeResultado(){
+
+let texto = document.getElementById("resultado").innerText;
+
+// Extrae el número del total
+let numero = texto.match(/\$([0-9]+)/g);
+
+if(numero && numero.length > 1){
+
+let total = parseInt(numero[1].replace("$",""));
 
 let contador = document.getElementById("contador");
 let valor = 0;
 
 let intervalo = setInterval(() => {
 
-valor += objetivo / 50;
+valor += total / 50;
 
-if(valor >= objetivo){
-valor = objetivo;
+if(valor >= total){
+valor = total;
 clearInterval(intervalo);
 }
 
 contador.innerHTML = "$" + Math.floor(valor);
 
 }, 30);
+
+}
 
 }
 </script>
