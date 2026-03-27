@@ -135,6 +135,59 @@ QUIERO MI CRÉDITO POR WHATSAPP
 <div class="services">
 <h2>Servicios Financieros</h2>
   <div style="padding:80px 20px;text-align:center;">
+<div style="max-width:600px;margin:50px auto;background:rgba(255,255,255,0.05);padding:30px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 30px rgba(0,0,0,0.6);">
+
+<h2 style="margin-bottom:20px;">Calculadora de Depósito a Plazo</h2>
+
+<label>Monto a invertir ($)</label>
+<input id="monto" type="number" placeholder="Ej: 1000"
+style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;">
+
+<label>Plazo</label>
+<select id="plazo" onchange="actualizarTasa()"
+style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;">
+
+<option value="">Seleccionar plazo</option> <option value="3">3 meses</option> <option value="6">6 meses</option> <option value="12">12 meses</option> <option value="24">24 meses</option>
+
+</select>
+
+<label>Tasa de interés</label>
+<input id="tasa" type="text" readonly
+style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;background:#222;color:#00ff88;">
+
+<button onclick="calcular()"
+style="width:100%;padding:14px;background:#00ff88;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-top:10px;">
+Calcular ganancias
+</button>
+
+<h3 id="resultado" style="margin-top:20px;color:#00ff88;"></h3>
+
+</div>
+
+<script>
+function actualizarTasa(){
+let plazo = document.getElementById("plazo").value;
+let tasa = 0;
+
+if(plazo == 3) tasa = 1.5;
+if(plazo == 6) tasa = 2.5;
+if(plazo == 12) tasa = 4;
+if(plazo == 24) tasa = 5.5;
+
+document.getElementById("tasa").value = tasa + " % anual"
+}
+
+function calcular(){
+let monto = parseFloat(document.getElementById("monto").value);
+let plazo = parseFloat(document.getElementById("plazo").value);
+let tasa = parseFloat(document.getElementById("tasa").value);
+
+if(monto && plazo && tasa){
+let interes = monto * (tasa/100) * (plazo/12); let total = monto + interes;
+
+document.getElementById("resultado").innerHTML =
+"💰 Intereses generados: $" + interes.toFixed(2) +
+"<br>🏦 Total al vencimiento: $" + total.toFixed(2); } } </script>
 
 <h2>Tabla de Tasas de Interés</h2>
 
