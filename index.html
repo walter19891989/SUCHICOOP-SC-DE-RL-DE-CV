@@ -170,9 +170,11 @@ let plazo = document.getElementById("plazo").value;
 let tasa = 0;
 
 if(plazo == 3) tasa = 1.5;
-if(plazo == 6) tasa = 2.5;
-if(plazo == 12) tasa = 4;
+if(plazo == 6) tasa = 2.0;
+if(plazo == 12) tasa = 3.5;
+if(plazo == 18) tasa = 4.0;
 if(plazo == 24) tasa = 5.5;
+if(plazo == 36) tasa = 5.5;
 
 document.getElementById("tasa").value = tasa + " % anual"
 }
