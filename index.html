@@ -188,7 +188,7 @@ let plazo = parseFloat(document.getElementById("plazo").value);
 let tasa = parseFloat(document.getElementById("tasa").value);
 
 if(monto && plazo && tasa){
-let interes = monto * (tasa/100) * (plazo/12); let total = monto + interes;
+let interes = monto * (tasa/100) * (plazo/360); let total = monto + interes;
 
 document.getElementById("resultado").innerHTML =
 "💰 Intereses generados: $" + interes.toFixed(2) +
