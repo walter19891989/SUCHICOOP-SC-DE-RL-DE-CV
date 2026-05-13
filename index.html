@@ -142,13 +142,13 @@ function actualizarTasa(){
 let plazo = document.getElementById("plazo").value;
 let tasa = 0;
 
-if(plazo == 30 dias) tasa = 3.50;
-if(plazo == 60 dias) tasa = 3.75;
-if(plazo == 90 dias) tasa = 4.0;
-if(plazo == 120 dias) tasa = 4.25;
-if(plazo == 150 dias) tasa = 4.50;
-if(plazo == 180 dias) tasa = 4.75;
-if(plazo == 360 dias) tasa = 5.0;
+if(plazo == 30) tasa = 3.50;
+if(plazo == 60) tasa = 3.75;
+if(plazo == 90) tasa = 4.0;
+if(plazo == 120) tasa = 4.25;
+if(plazo == 150) tasa = 4.50;
+if(plazo == 180) tasa = 4.75;
+if(plazo == 360) tasa = 5.0;
 
 document.getElementById("tasa").value = tasa + " % anual"
 }
