@@ -1293,26 +1293,189 @@ Ser una sociedad cooperativa sólida, ofreciendo servicios financieros éticos a
 </div>
 
 
-<!-- ==================================================
-     NUESTROS SOCIOS
-================================================== -->
+<!-- ÁLBUM DE NUESTROS SOCIOS -->
+<div style="
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0b0f14,#0f3d2e);
+">
 
-<div class="partners-section">
-
-<h2>
+<h2 style="
+margin-bottom:12px;
+font-size:30px;
+">
 🤝 Nuestros socios, nuestra razón de crecer
 </h2>
 
-<p class="partners-text">
+<p style="
+max-width:750px;
+margin:0 auto 30px;
+color:#ccc;
+font-size:17px;
+line-height:1.6;
+">
 En SUCHICOOP creemos que una cooperativa se construye con confianza,
-compromiso y trabajo en conjunto. Cada socio forma parte de este proyecto
-y nos impulsa a seguir creando oportunidades para crecer juntos.
+compromiso y trabajo en conjunto.
 </p>
 
-<img src="socios.jpg"
-alt="Atención a nuestros socios en SUCHICOOP"
-class="partners-image">
+<!-- ÁLBUM -->
+<div id="albumSocios" style="
+max-width:850px;
+margin:auto;
+position:relative;
+">
 
+<div style="
+background:#121821;
+padding:15px;
+border-radius:22px;
+box-shadow:0 10px 35px rgba(0,0,0,0.5);
+">
+
+<img id="fotoSocio"
+src="socios.jpg"
+alt="Nuestros socios en SUCHICOOP"
+style="
+width:100%;
+max-height:600px;
+object-fit:contain;
+border-radius:15px;
+display:block;
+margin:auto;
+transition:opacity 0.4s ease, transform 0.4s ease;
+">
+
+</div>
+
+<!-- BOTÓN ANTERIOR -->
+<button onclick="fotoAnterior()" style="
+position:absolute;
+left:20px;
+top:50%;
+transform:translateY(-50%);
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:rgba(0,0,0,0.65);
+color:white;
+font-size:25px;
+cursor:pointer;
+">
+‹
+</button>
+
+<!-- BOTÓN SIGUIENTE -->
+<button onclick="fotoSiguiente()" style="
+position:absolute;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:rgba(0,0,0,0.65);
+color:white;
+font-size:25px;
+cursor:pointer;
+">
+›
+</button>
+
+</div>
+
+<!-- INDICADOR -->
+<p id="contadorFotos" style="
+margin-top:18px;
+color:#00ff88;
+font-weight:bold;
+">
+1 / 1
+</p>
+
+<p id="textoFoto" style="
+color:#aaa;
+font-size:14px;
+margin-top:5px;
+">
+Nuestros socios forman parte de este proyecto.
+</p>
+
+</div>
+
+<script>
+
+const fotosSocios = [
+    {
+        imagen: "socios.jpg",
+        texto: "Nuestros socios forman parte de este proyecto."
+    },
+
+    {
+        imagen: "socio2.jpg",
+        texto: "Apertura de cuenta en SUCHICOOP."
+    },
+
+    {
+        imagen: "socio3.jpg",
+        texto: "Atención personalizada a nuestros socios."
+    },
+
+    {
+        imagen: "socio4.jpg",
+        texto: "Construyendo juntos nuevas oportunidades."
+    }
+];
+
+let fotoActual = 0;
+
+function mostrarFoto() {
+
+    const imagen = document.getElementById("fotoSocio");
+    const contador = document.getElementById("contadorFotos");
+    const texto = document.getElementById("textoFoto");
+
+    imagen.style.opacity = "0";
+    imagen.style.transform = "scale(0.97)";
+
+    setTimeout(function(){
+
+        imagen.src = fotosSocios[fotoActual].imagen;
+        texto.innerHTML = fotosSocios[fotoActual].texto;
+
+        contador.innerHTML =
+        (fotoActual + 1) + " / " + fotosSocios.length;
+
+        imagen.style.opacity = "1";
+        imagen.style.transform = "scale(1)";
+
+    },200);
+}
+
+function fotoSiguiente() {
+
+    fotoActual++;
+
+    if(fotoActual >= fotosSocios.length){
+        fotoActual = 0;
+    }
+
+    mostrarFoto();
+}
+
+function fotoAnterior() {
+
+    fotoActual--;
+
+    if(fotoActual < 0){
+        fotoActual = fotosSocios.length - 1;
+    }
+
+    mostrarFoto();
+}
+
+</script>
 </div>
 
 
