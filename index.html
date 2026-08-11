@@ -4,17 +4,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SUCHICOOP</title>
-  
+
 <style>
-  
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:Arial, sans-serif;
 background:radial-gradient(circle at top,#0f3d2e,#0b0f14);
 color:white;
 text-align:center;
-
+overflow-x:hidden;
 }
+
+p{
+color:#ccc;
+}
+
+h2{
+margin-top:0;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+@keyframes brillo{
+from{
+filter:drop-shadow(0 0 5px #00ff88);
+}
+to{
+filter:drop-shadow(0 0 22px #00ff88);
+}
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
 min-height:100vh;
 display:flex;
@@ -22,23 +73,60 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:50px 20px;
 background:linear-gradient(270deg,#0f3d2e,#0b0f14,#1b5e20);
 background-size:600% 600%;
-animation:gradientMove 10s ease infinite; }
-@keyframes gradientMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+animation:gradientMove 10s ease infinite;
 }
 
-h1{
-font-size:56px;
+.hero-logo{
+width:450px;
+max-width:85%;
+border-radius:40px;
+box-shadow:0 0 10px #00ff88,0 0 40px #00ff88;
+animation:brillo 2s infinite alternate;
+}
+
+.hero h1{
+font-size:42px;
 line-height:1.1;
-margin-bottom:20px;
+margin:15px 0 20px;
 }
-p{
-color:#ccc;
+
+.hero-subtitle{
+font-size:20px;
+color:#ddd;
+max-width:800px;
+line-height:1.5;
 }
+
+.hero-button{
+margin-top:30px;
+padding:20px 50px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#00ff88,#00c853);
+color:black;
+font-size:20px;
+font-weight:800;
+cursor:pointer;
+transition:.3s;
+}
+
+.hero-button:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(0,255,136,.5);
+}
+
+.hero-small{
+margin-top:15px;
+color:#aaa;
+font-size:14px;
+}
+
+/* =========================
+   BOTONES
+========================= */
 
 .btn{
 margin-top:25px;
@@ -49,15 +137,58 @@ background:linear-gradient(90deg,#00ff88,#00c853);
 color:black;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
 .btn:hover{
 transform:scale(1.05);
+box-shadow:0 0 20px rgba(0,255,136,.4);
 }
 
+/* =========================
+   SECCIONES
+========================= */
+
 .section{
-padding:60px 20px;
+padding:50px 20px;
+}
+
+.section-tight{
+padding:30px 20px;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:12px;
+}
+
+.section-description{
+max-width:750px;
+margin:0 auto 30px;
+color:#ccc;
+line-height:1.6;
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.services{
+padding:45px 20px 20px;
+}
+
+.services-title{
+font-size:34px;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:20px;
+max-width:1100px;
+margin:35px auto;
+padding:0 20px;
 }
 
 .card{
@@ -66,9 +197,9 @@ padding:25px;
 border-radius:20px;
 border:1px solid rgba(255,255,255,0.1);
 backdrop-filter:blur(10px);
-transition:all 0.3s ease;
+transition:all .3s ease;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
 .card img{
@@ -79,631 +210,430 @@ filter:drop-shadow(0 0 5px #00ff88);
 .card:hover{
 transform:translateY(-10px) scale(1.03);
 border:1px solid #00ff88;
-box-shadow:0 0 20px rgba(0,255,136,0.4);
-}</style>
-</head>
-  
-<body>
-
-<div class="hero">
-<img src="logo.png" style="width:450px;border-radius:40px;box-shadow:0 0 10px #00ff88,0 0 40 px #00ff88;animation:brillo 2s infinite alternate;">
-
-
-<p style="color:#00ff88;font-weight:700;letter-spacing:2px;font-size:12px;margin-bottom:15px;">
-SOCIEDAD COOPERATIVA EN EL SALVADOR
-</p>
-
-<h1 style="font-size:35px;line-height:1.1;">
-Finanzas modernas con respaldo real
-  <div style="text-align:center;padding:60px 20px;">
-
-<h2>Crecimiento de tu inversión</h2>
-
-</div>
-
-</h1>
-
-<p style="font-size:20px;color:#ddd;">
-Aprobación rápida • Proceso transparente • Atención personalizada e inmediata por WhatsApp
-</p>
-
-<button style="
-margin-top:30px;
-padding:20px 50px;
-border:none;
-border-radius:50px;
-background:linear-gradient(90deg,#00ff88,#00c853);
-color:black;
-font-size:20px;
-font-weight:800;
-cursor:pointer;
-">
-QUIERO MI CRÉDITO POR WHATSAPP
-</button>
-<p style="margin-top:15px;color:#aaa;font-size:14px;">
-✔ Atención inmediata • ✔ Sin compromiso • ✔ 100% confidencial
-</p>
-<p style="font-size:18px;max-width:500px;margin:auto;color:#ddd;">
-</p>
-
-<button class="btn" onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20mi%20crédito'">
-
-</button>
-
-</div>
-</div>
-
-<div class="services">
-<h2>Servicios Financieros</h2>
-  <div style="padding:80px 20px;text-align:center;">
-
-<script>
-function actualizarTasa(){
-let plazo = document.getElementById("plazo").value;
-let tasa = 0;
-
-if(plazo == 30) tasa = 3.50;
-if(plazo == 60) tasa = 3.75;
-if(plazo == 90) tasa = 4.0;
-if(plazo == 120) tasa = 4.25;
-if(plazo == 150) tasa = 4.50;
-if(plazo == 180) tasa = 4.75;
-if(plazo == 360) tasa = 5.0;
-
-document.getElementById("tasa").value = tasa + " % anual"
+box-shadow:0 0 20px rgba(0,255,136,.4);
 }
 
-function calcular(){
-let monto = parseFloat(document.getElementById("monto").value);
-let plazo = parseFloat(document.getElementById("plazo").value);
-let tasa = parseFloat(document.getElementById("tasa").value);
+.card h3{
+margin:8px 0;
+}
 
-if(monto && plazo && tasa){
-let interes = monto * (tasa/100) * (plazo/360); let total = monto + interes;
+.card p{
+font-size:15px;
+}
 
-document.getElementById("resultado").innerHTML =
-"💰 Intereses generados: $" + interes.toFixed(2) +
-"<br>🏦 Total al vencimiento: $" + total.toFixed(2); } } </script>
+/* =========================
+   TABLAS
+========================= */
 
-<h2>Tabla de Tasas de Interés</h2>
+.table-container{
+overflow-x:auto;
+max-width:900px;
+margin:0 auto;
+}
 
-<p style="color:#ccc;margin-bottom:30px;">
-Tasas referenciales sujetas a evaluación crediticia
-</p>
+table{
+width:100%;
+border-collapse:collapse;
+background:#121821;
+border-radius:15px;
+overflow:hidden;
+}
 
-<div style="overflow-x:auto;max-width:800px;margin:auto;">
+th{
+padding:15px;
+background:#0f3d2e;
+color:white;
+}
 
-<table style="width:100%;border-collapse:collapse;background:#121821;border-radius:15px;overflow:hidden;">
+td{
+padding:15px;
+}
 
-<tr style="background:#0f3d2e;color:white;">
-<th style="padding:15px;">Tipo de Crédito</th>
-<th style="padding:15px;">Tasa desde</th>
-<th style="padding:15px;">Plazo</th>
-</tr>
+tr:nth-child(even){
+background:#1a222c;
+}
 
-<tr>
-<td style="padding:15px;">Crédito de Consumo</td>
-<td style="padding:15px;">10% al 18% anual</td>
-<td style="padding:15px;">6 a 36 meses</td>
-</tr>
+/* =========================
+   CALCULADORA
+========================= */
 
-<tr style="background:#1a222c;">
-<td style="padding:15px;">Crédito para Vivienda</td>
-<td style="padding:15px;">13% al 16% anual</td>
-<td style="padding:15px;">hasta 20 años</td>
-</tr>
+.calculator{
+max-width:600px;
+margin:40px auto;
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 30px rgba(0,0,0,.6);
+}
 
-<tr>
-<td style="padding:15px;">Crédito para Comercio</td>
-<td style="padding:15px;">16% anual</td>
-<td style="padding:15px;">12 a 60 meses</td>
-</tr>
+.calculator label{
+display:block;
+margin-top:15px;
+margin-bottom:5px;
+}
 
-  <tr>
-<td style="padding:15px;">Crédito para Produccion</td>
-<td style="padding:15px;">11% al 18% anual</td>
-<td style="padding:15px;">12 a 60 meses</td>
-</tr>
+.calculator input,
+.calculator select{
+width:100%;
+padding:13px;
+margin:5px 0;
+border-radius:10px;
+border:none;
+font-size:16px;
+}
 
-  <tr>
-<td style="padding:15px;">Servicios</td>
-<td style="padding:15px;">18% anual</td>
-<td style="padding:15px;">12 a 60 meses</td>
-</tr>
+.calculator input:focus,
+.calculator select:focus{
+outline:2px solid #00ff88;
+}
 
-</table>
+.calculate-button{
+width:100%;
+padding:14px;
+background:#00ff88;
+border:none;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+}
 
-</div>
+#resultado{
+margin-top:20px;
+color:#00ff88;
+}
 
-  <div style="max-width:600px;margin:50px auto;background:rgba(255,255,255,0.05);padding:30px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 30px rgba(0,0,0,0.6);">
+/* =========================
+   RESPUESTA RÁPIDA
+========================= */
 
-<h2 style="margin-bottom:20px;">Calculadora de Depósito a Plazo</h2>
-
-<label>Monto a invertir ($)</label>
-<input id="monto" type="number" placeholder="Ej: 1000"
-style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;">
-
-<label>Plazo</label>
-<select id="plazo" onchange="actualizarTasa()"
-style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;">
-
-<option value="">Seleccionar plazo</option> <option value="30">30 dias</option> <option value="60">60 dias</option> <option value="90">90 dias</option> <option value="120">120 dias</option> <option value="150">150 dias</option> <option value="180">180 dias</option>
-<option value="360">360 dias</option>
-</select>
-
-
-<label>Tasa de interés</label>
-<input id="tasa" type="text" readonly
-style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;background:#222;color:#00ff88;">
-
-<button onclick="calcular()"
-style="width:100%;padding:14px;background:#00ff88;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-top:10px;">
-Calcular ganancias
-</button>
-
-<h3 id="resultado" style="margin-top:20px;color:#00ff88;"></h3>
-
-</div>
-    <div style="padding:80px 20px;text-align:center;">
-
-<h2>Depósitos a Plazo</h2>
-
-<p style="color:#ccc;margin-bottom:30px;">
-Tasas de interés referenciales según plazo de inversión
-</p>
-
-<div style="overflow-x:auto;max-width:800px;margin:auto;">
-
-<table style="width:100%;border-collapse:collapse;background:#121821;border-radius:15px;overflow:hidden;">
-
-<tr style="background:#0f3d2e;color:white;">
-<th style="padding:15px;">Plazo</th>
-<th style="padding:15px;">Tasa de interés</th>
-<th style="padding:15px;">Modalidad</th>
-</tr>
-
-<tr>
-<td style="padding:15px;">30 dias</td>
-<td style="padding:15px;">3.50%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-<tr style="background:#1a222c;">
-<td style="padding:15px;">60 dias</td>
-<td style="padding:15px;">3.75%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-<tr>
-<td style="padding:15px;">90 dias</td>
-<td style="padding:15px;">4.0%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-  <tr>
-<td style="padding:15px;">120 dias</td>
-<td style="padding:15px;">4.25%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-<tr style="background:#1a222c;">
-<td style="padding:15px;">150 dias meses</td>
-<td style="padding:15px;">4.50%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-<tr>
-<td style="padding:15px;">180 dias</td>
-<td style="padding:15px;">4.75%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-<tr>
-<td style="padding:15px;">360 dias</td>
-<td style="padding:15px;">5.0%</td>
-<td style="padding:15px;">Pago mensual o al vencimiento</td>
-</tr>
-
-</table>
-
-</div>
-
-<div style="padding:80px 20px;text-align:center;">
-
-<h2>Requisitos para solicitar crédito</h2>
-
-<div style="max-width:600px;margin:auto;text-align:left;color:#ccc;">
-
-<p>✔ DUI</p>
-<p>✔ Comprobante de ingresos</p>
-<p>✔ Comprobante de remesas</p>
-<p>✔ Comprobante de negocio</p>
-<p>✔ Recibo de servicios</p>
-<p>✔ Referencias personales</p>
-
-</div>
-  <div style="
-padding:70px 20px;
+.quick-section{
+padding:55px 20px;
 text-align:center;
 background:linear-gradient(135deg,#0b0f14,#0f3d2e);
-">
+}
 
-<h2 style="
+.quick-section h2{
 font-size:32px;
 margin-bottom:15px;
-color:white;
-">
-⚡ Respuesta rápida
-</h2>
+}
 
-<p style="
+.quick-description{
 max-width:650px;
-margin:0 auto 40px;
+margin:0 auto 30px;
 color:#ccc;
 font-size:17px;
 line-height:1.6;
-">
-Atendemos tu solicitud de forma rápida, clara y personalizada.
-Nuestro equipo está listo para orientarte y ayudarte a encontrar la opción que mejor se adapte a tus necesidades.
-</p>
+}
 
-<div style="
+.quick-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 max-width:800px;
 margin:auto;
-">
+}
 
-<div style="
-background:rgba(255,255,255,0.06);
+.quick-card{
+background:rgba(255,255,255,.06);
 padding:25px 15px;
 border-radius:18px;
-border:1px solid rgba(255,255,255,0.1);
-">
-<div style="font-size:32px;">⚡</div>
-<h3 style="color:white;">Respuesta rápida</h3>
-<p style="color:#aaa;font-size:14px;">
-Agilizá tu solicitud y recibí atención oportuna.
-</p>
-</div>
+border:1px solid rgba(255,255,255,.1);
+transition:.3s;
+}
 
-<div style="
-background:rgba(255,255,255,0.06);
-padding:25px 15px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.1);
-">
-<div style="font-size:32px;">🤝</div>
-<h3 style="color:white;">Atención personalizada</h3>
-<p style="color:#aaa;font-size:14px;">
-Estamos para escucharte y orientarte.
-</p>
-</div>
+.quick-card:hover{
+transform:translateY(-5px);
+border-color:#00ff88;
+}
 
-<div style="
-background:rgba(255,255,255,0.06);
-padding:25px 15px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.1);
-">
-<div style="font-size:32px;">🔒</div>
-<h3 style="color:white;">Información confidencial</h3>
-<p style="color:#aaa;font-size:14px;">
-Tratamos tu información con responsabilidad.
-</p>
-</div>
+.quick-icon{
+font-size:32px;
+}
 
-</div>
+.quick-card h3{
+color:white;
+}
 
-<button onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20los%20servicios%20de%20SUCHICOOP'"
-style="
-margin-top:40px;
-padding:15px 35px;
+.quick-card p{
+color:#aaa;
+font-size:14px;
+}
+
+/* =========================
+   INVERSIÓN
+========================= */
+
+.invest-section{
+padding:35px 20px 20px;
+text-align:center;
+}
+
+.invest-section h2{
+margin-bottom:10px;
+}
+
+.invest-section p{
+margin:0 auto 15px;
+}
+
+.invest-button{
+margin-top:5px;
+padding:12px 30px;
 border:none;
 border-radius:30px;
 background:linear-gradient(90deg,#00ff88,#00c853);
 color:black;
 font-weight:bold;
-font-size:16px;
 cursor:pointer;
-">
-💬 Hablar con SUCHICOOP
-</button>
+}
 
-</div>
-<div style="padding:20px 20px;text-align:center;">
-
-<h2>Invertí tu dinero con nosotros</h2>
-
-<p style="color:#ccc;">
-Ofrecemos opciones de ahorro seguras con tasas competitivas en depósitos a plazo.
-</p>
-
-<button onclick="window.location.href='https://wa.me/50376558874'" 
-style="margin-top:5px;padding:12px 30px;border:none;border-radius:30px;
+.requirements-button{
+margin-top:10px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
 background:linear-gradient(90deg,#00ff88,#00c853);
-color:black;font-weight:bold;cursor:pointer;">
-Quiero invertir
-</button>
+color:black;
+font-weight:bold;
+cursor:pointer;
+}
 
-</div><button onclick="window.location.href='https://wa.me/50376558874'" 
-style="margin-top:10px;padding:12px 30px;border:none;border-radius:30px;
-background:linear-gradient(90deg,#00ff88,#00c853);
-color:black;font-weight:bold;cursor:pointer;">
-Consultar requisitos ahora
-</button>
+.rate-note{
+margin:12px 0 5px;
+color:#888;
+font-size:13px;
+}
 
-</div>
+/* =========================
+   NOSOTROS
+========================= */
 
-<p style="margin-top:10px;color:#888;font-size:13px;">
-*Las tasas pueden variar según condiciones del mercado y políticas internas.
-</p>
-
-</div>
-</div>
-<div class="grid">
-
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" width="50">
-<h3>Créditos de Consumo</h3>
-<p>Financiamiento rápido.</p>
-</div>
-
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/69/69524.png" width="50">
-<h3>Créditos Vivienda</h3>
-<p>Tu casa propia.</p>
-</div>
-
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/1077/1077976.png" width="50">
-<h3>Créditos Comercio</h3>
-<p>Impulsá tu negocio.</p>
-</div>
-
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" width="50">
-<h3>Cuentas de Ahorro</h3>
-<p>Tu dinero seguro.</p>
-</div>
-
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="50">
-<h3>Depósitos a Plazo</h3>
-<p>Mayor rendimiento.</p>
-</div>
-</div>  
-  
-<div style="
-padding:80px 20px;
+.about-section{
+padding:55px 20px;
 max-width:1100px;
 margin:auto;
 background:linear-gradient(135deg,#0f3d2e,#10251e);
-">
+}
 
-<h2 style="
+.about-section h2{
 text-align:center;
 font-size:36px;
 margin-bottom:15px;
-color:white;
-">
-Nosotros
-</h2>
+}
 
-<p style="
+.about-intro{
 text-align:center;
 max-width:700px;
-margin:0 auto 45px;
+margin:0 auto 35px;
 color:#bfc8c4;
 font-size:17px;
 line-height:1.6;
-">
-Conocé quiénes somos, nuestro propósito y hacia dónde queremos llevar a SUCHICOOP.
-</p>
+}
 
-<div style="
+.about-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
-">
+}
 
-<!-- QUIÉNES SOMOS -->
-
-<div style="
-background:rgba(255,255,255,0.07);
-padding:35px 28px;
+.about-card{
+background:rgba(255,255,255,.07);
+padding:30px 25px;
 border-radius:22px;
-border:1px solid rgba(0,255,136,0.15);
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
+border:1px solid rgba(0,255,136,.15);
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 text-align:center;
-">
+transition:.3s;
+}
 
-<div style="
+.about-card:hover{
+transform:translateY(-5px);
+border-color:#00ff88;
+}
+
+.about-icon{
 width:65px;
 height:65px;
 margin:0 auto 20px;
 border-radius:50%;
-background:rgba(0,255,136,0.12);
+background:rgba(0,255,136,.12);
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:30px;
-">
-🤝
-</div>
+}
 
-<h3 style="
+.about-card h3{
 font-size:23px;
 color:#00ff88;
-margin-bottom:18px;
-">
-Quiénes Somos
-</h3>
+margin-bottom:15px;
+}
 
-<p style="
+.about-card p{
 color:#d5d9d7;
 font-size:16px;
 line-height:1.7;
-">
-Somos una sociedad cooperativa enfocada en el crecimiento económico de nuestros socios y clientes, brindando soluciones accesibles, seguras y confiables.
-</p>
+}
 
-</div>
+/* =========================
+   SOCIOS
+========================= */
 
-
-<!-- MISIÓN -->
-
-<div style="
-background:rgba(255,255,255,0.07);
-padding:35px 28px;
-border-radius:22px;
-border:1px solid rgba(0,255,136,0.15);
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
+.partners-section{
+padding:55px 20px;
 text-align:center;
-">
+}
 
-<div style="
-width:65px;
-height:65px;
-margin:0 auto 20px;
-border-radius:50%;
-background:rgba(0,255,136,0.12);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-">
-🎯
-</div>
+.partners-section h2{
+margin-bottom:15px;
+}
 
-<h3 style="
-font-size:23px;
-color:#00ff88;
-margin-bottom:18px;
-">
-Misión
-</h3>
+.partners-text{
+max-width:750px;
+margin:0 auto 30px;
+color:#ccc;
+font-size:18px;
+line-height:1.6;
+}
 
-<p style="
-color:#d5d9d7;
-font-size:16px;
-line-height:1.7;
-">
-Somos una sociedad cooperativa comprometida con el desarrollo integral de nuestros socios y clientes, brindando servicios de calidad y contribuyendo al progreso económico y social.
-</p>
-
-</div>
-
-
-<!-- VISIÓN -->
-
-<div style="
-background:rgba(255,255,255,0.07);
-padding:35px 28px;
-border-radius:22px;
-border:1px solid rgba(0,255,136,0.15);
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
-text-align:center;
-">
-
-<div style="
-width:65px;
-height:65px;
-margin:0 auto 20px;
-border-radius:50%;
-background:rgba(0,255,136,0.12);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-">
-🌱
-</div>
-
-<h3 style="
-font-size:23px;
-color:#00ff88;
-margin-bottom:18px;
-">
-Visión
-</h3>
-
-<p style="
-color:#d5d9d7;
-font-size:16px;
-line-height:1.7;
-">
-Ser una sociedad cooperativa sólida, ofreciendo servicios financieros éticos a nuestros socios y clientes, con atención personalizada y en beneficio del crecimiento económico en común.
-</p>
-
-</div>
-
-</div>
-
-</div>
-</div></div>
-</div>
-</div>
-  <!-- FOTO DE NUESTROS SOCIOS -->
-<div style="padding:80px 20px;text-align:center;">
-
-<h2 style="margin-bottom:15px;">🤝 Nuestros socios, nuestra razón de crecer</h2>
-
-<p style="max-width:750px;margin:0 auto 35px;color:#ccc;font-size:18px;line-height:1.6;">
-En SUCHICOOP creemos que una cooperativa se construye con confianza,
-compromiso y trabajo en conjunto. Cada socio forma parte de este proyecto
-y nos impulsa a seguir creando oportunidades para crecer juntos.
-</p>
-
-<img src="socios.jpg"
-alt="Atención a nuestros socios en SUCHICOOP"
-style="
+.partners-image{
 width:100%;
 max-width:1000px;
 border-radius:20px;
 display:block;
 margin:auto;
-box-shadow:0 10px 35px rgba(0,0,0,0.5);
-">
+box-shadow:0 10px 35px rgba(0,0,0,.5);
+}
 
-</div>
-<div class="section" style="background:#111;">
-<h2>¿Por qué elegirnos?</h2>
+/* =========================
+   POR QUÉ ELEGIRNOS
+========================= */
 
-<div style="display:grid;gap:15px;max-width:500px;margin:auto;text-align:left;">
+.choose-section{
+padding:50px 20px;
+background:#111;
+}
 
-<p>✔ Respuesta rápida</p>
-<p>✔ Créditos accesibles</p>
-<p>✔ Atención directa por WhatsApp</p>
-<p>✔ Sin trámites complicados</p>
+.choose-grid{
+display:grid;
+gap:12px;
+max-width:500px;
+margin:auto;
+text-align:left;
+}
 
-</div>
+.choose-item{
+background:rgba(255,255,255,.04);
+padding:12px 18px;
+border-radius:12px;
+border-left:3px solid #00ff88;
+}
 
-<button class="btn" onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20mi%20crédito'">
-Solicitar crédito ahora
-</button>
+/* =========================
+   CUMPLIMIENTO
+========================= */
 
-</div>
-<div class="section">
-  <div style="padding:80px 20px;background:linear-gradient(120deg,#0f3d2e,#0b0f14);text-align:center;">
+.legal-section{
+padding:55px 20px;
+background:linear-gradient(120deg,#0f3d2e,#0b0f14);
+text-align:center;
+}
 
-<h2 style="margin-bottom:20px;">Cumplimiento Legal</h2>
+.legal-section p{
+max-width:800px;
+margin:auto;
+color:#ccc;
+font-size:18px;
+line-height:1.6;
+}
 
-<p style="max-width:800px;margin:auto;color:#ccc;font-size:18px;">
-En SUCHICOOP operamos conforme a las leyes de la República de El Salvador, 
-apegados a las normativas vigentes del sistema financiero, garantizando transparencia, 
-seguridad y confianza en cada una de nuestras operaciones.
-</p>
+/* =========================
+   UBICACIÓN
+========================= */
 
-</div><h2>Ubicación</h2>
-<p>Final barrio la cruz,Avenida rafael palacios,113,Suchitoto, Cuscatlán, El Salvador; Telefonos: 50376558874/50376559431</p>
+.location-section{
+padding:45px 20px 70px;
+text-align:center;
+}
 
-<iframe src="https://maps.google.com/maps?q=Suchitoto&output=embed"
-width="90%" height="300"></iframe>
-</div>
-<a href="https://wa.me/50376558874?text=Hola,%20quiero%20información%20de%20crédito"
-style="
+.location-section p{
+max-width:850px;
+margin:0 auto 20px;
+line-height:1.6;
+}
+
+.map{
+width:90%;
+max-width:1000px;
+height:350px;
+border:0;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+/* =========================
+   PREGUNTAS FRECUENTES
+========================= */
+
+.faq-section{
+padding:55px 20px;
+background:#0b0f14;
+}
+
+.faq-container{
+max-width:850px;
+margin:auto;
+text-align:left;
+}
+
+.faq-item{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:15px;
+padding:18px 20px;
+margin-bottom:12px;
+}
+
+.faq-item h3{
+margin:0 0 8px;
+color:#00ff88;
+font-size:18px;
+}
+
+.faq-item p{
+margin:0;
+line-height:1.6;
+font-size:15px;
+}
+
+/* =========================
+   CTA FINAL
+========================= */
+
+.final-cta{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0f3d2e,#0b0f14);
+}
+
+.final-cta h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.final-cta p{
+max-width:650px;
+margin:0 auto 25px;
+line-height:1.6;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
@@ -713,9 +643,962 @@ padding:15px 18px;
 border-radius:50px;
 font-size:20px;
 text-decoration:none;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
+box-shadow:0 5px 20px rgba(0,0,0,.3);
 z-index:999;
+transition:.3s;
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+padding:30px 20px;
+background:#080b0e;
+border-top:1px solid rgba(0,255,136,.15);
+}
+
+.footer p{
+font-size:13px;
+color:#777;
+margin:5px;
+}
+
+/* =========================
+   CELULARES
+========================= */
+
+@media(max-width:600px){
+
+.hero{
+padding:35px 15px;
+}
+
+.hero-logo{
+width:330px;
+max-width:90%;
+}
+
+.hero h1{
+font-size:31px;
+}
+
+.hero-subtitle{
+font-size:17px;
+}
+
+.hero-button{
+padding:16px 25px;
+font-size:16px;
+}
+
+.section{
+padding:40px 15px;
+}
+
+.services{
+padding:35px 15px 10px;
+}
+
+.grid{
+grid-template-columns:1fr;
+padding:0 10px;
+}
+
+.table-container{
+width:100%;
+}
+
+th,
+td{
+padding:11px 8px;
+font-size:13px;
+}
+
+.calculator{
+padding:22px 18px;
+margin:30px auto;
+}
+
+.about-section{
+padding:45px 15px;
+}
+
+.about-section h2{
+font-size:30px;
+}
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+.partners-section{
+padding:45px 15px;
+}
+
+.partners-text{
+font-size:16px;
+}
+
+.quick-section{
+padding:45px 15px;
+}
+
+.quick-grid{
+grid-template-columns:1fr;
+}
+
+.location-section{
+padding:40px 15px 60px;
+}
+
+.map{
+width:100%;
+height:300px;
+}
+
+.whatsapp{
+bottom:15px;
+right:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ==================================================
+     PORTADA
+================================================== -->
+
+<div class="hero">
+
+<img src="logo.png"
+class="hero-logo"
+alt="SUCHICOOP">
+
+<p style="color:#00ff88;font-weight:700;letter-spacing:2px;font-size:12px;margin-bottom:10px;">
+SOCIEDAD COOPERATIVA EN EL SALVADOR
+</p>
+
+<h1>
+Finanzas modernas con respaldo real
+</h1>
+
+<p class="hero-subtitle">
+Aprobación rápida • Proceso transparente • Atención personalizada e inmediata por WhatsApp
+</p>
+
+<button class="hero-button"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20mi%20crédito'">
+QUIERO MI CRÉDITO POR WHATSAPP
+</button>
+
+<p class="hero-small">
+✔ Atención inmediata • ✔ Sin compromiso • ✔ 100% confidencial
+</p>
+
+</div>
+
+
+<!-- ==================================================
+     SERVICIOS FINANCIEROS
+================================================== -->
+
+<div class="services">
+
+<h2 class="services-title">
+Servicios Financieros
+</h2>
+
+<!-- TABLA DE TASAS -->
+
+<h2>
+Tabla de Tasas de Interés
+</h2>
+
+<p style="margin-bottom:25px;">
+Tasas referenciales sujetas a evaluación crediticia
+</p>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Tipo de Crédito</th>
+<th>Tasa desde</th>
+<th>Plazo</th>
+</tr>
+
+<tr>
+<td>Crédito de Consumo</td>
+<td>10% al 18% anual</td>
+<td>6 a 36 meses</td>
+</tr>
+
+<tr>
+<td>Crédito para Vivienda</td>
+<td>13% al 16% anual</td>
+<td>hasta 20 años</td>
+</tr>
+
+<tr>
+<td>Crédito para Comercio</td>
+<td>16% anual</td>
+<td>12 a 60 meses</td>
+</tr>
+
+<tr>
+<td>Crédito para Producción</td>
+<td>11% al 18% anual</td>
+<td>12 a 60 meses</td>
+</tr>
+
+<tr>
+<td>Servicios</td>
+<td>18% anual</td>
+<td>12 a 60 meses</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ==================================================
+     CALCULADORA
+================================================== -->
+
+<div class="calculator">
+
+<h2>
+Calculadora de Depósito a Plazo
+</h2>
+
+<label>
+Monto a invertir ($)
+</label>
+
+<input id="monto"
+type="number"
+placeholder="Ej: 1000">
+
+<label>
+Plazo
+</label>
+
+<select id="plazo"
+onchange="actualizarTasa()">
+
+<option value="">
+Seleccionar plazo
+</option>
+
+<option value="30">30 días</option>
+<option value="60">60 días</option>
+<option value="90">90 días</option>
+<option value="120">120 días</option>
+<option value="150">150 días</option>
+<option value="180">180 días</option>
+<option value="360">360 días</option>
+
+</select>
+
+<label>
+Tasa de interés
+</label>
+
+<input id="tasa"
+type="text"
+readonly
+style="background:#222;color:#00ff88;">
+
+<button class="calculate-button"
+onclick="calcular()">
+Calcular ganancias
+</button>
+
+<h3 id="resultado"></h3>
+
+</div>
+
+
+<!-- ==================================================
+     DEPÓSITOS A PLAZO
+================================================== -->
+
+<div class="section-tight">
+
+<h2>
+Depósitos a Plazo
+</h2>
+
+<p style="margin-bottom:25px;">
+Tasas de interés referenciales según plazo de inversión
+</p>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Plazo</th>
+<th>Tasa de interés</th>
+<th>Modalidad</th>
+</tr>
+
+<tr>
+<td>30 días</td>
+<td>3.50%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+<tr>
+<td>60 días</td>
+<td>3.75%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+<tr>
+<td>90 días</td>
+<td>4.0%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+<tr>
+<td>120 días</td>
+<td>4.25%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+<tr>
+<td>150 días</td>
+<td>4.50%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+<tr>
+<td>180 días</td>
+<td>4.75%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+<tr>
+<td>360 días</td>
+<td>5.0%</td>
+<td>Pago mensual o al vencimiento</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     REQUISITOS
+================================================== -->
+
+<div class="section-tight">
+
+<h2>
+Requisitos para solicitar crédito
+</h2>
+
+<div style="
+max-width:600px;
+margin:auto;
+text-align:left;
+color:#ccc;
 ">
+
+<p>✔ DUI</p>
+<p>✔ Comprobante de ingresos</p>
+<p>✔ Comprobante de remesas</p>
+<p>✔ Comprobante de negocio</p>
+<p>✔ Recibo de servicios</p>
+<p>✔ Referencias personales</p>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     RESPUESTA RÁPIDA
+================================================== -->
+
+<div class="quick-section">
+
+<h2>
+⚡ Respuesta rápida
+</h2>
+
+<p class="quick-description">
+Atendemos tu solicitud de forma rápida, clara y personalizada.
+Nuestro equipo está listo para orientarte y ayudarte a encontrar la opción que mejor se adapte a tus necesidades.
+</p>
+
+<div class="quick-grid">
+
+<div class="quick-card">
+<div class="quick-icon">⚡</div>
+<h3>Respuesta rápida</h3>
+<p>
+Agilizá tu solicitud y recibí atención oportuna.
+</p>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">🤝</div>
+<h3>Atención personalizada</h3>
+<p>
+Estamos para escucharte y orientarte.
+</p>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">🔒</div>
+<h3>Información confidencial</h3>
+<p>
+Tratamos tu información con responsabilidad.
+</p>
+</div>
+
+</div>
+
+<button class="btn"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20los%20servicios%20de%20SUCHICOOP'">
+
+💬 Hablar con SUCHICOOP
+
+</button>
+
+</div>
+
+
+<!-- ==================================================
+     INVERTÍ TU DINERO
+================================================== -->
+
+<div class="invest-section">
+
+<h2>
+Invertí tu dinero con nosotros
+</h2>
+
+<p>
+Ofrecemos opciones de ahorro seguras con tasas competitivas en depósitos a plazo.
+</p>
+
+<button class="invest-button"
+onclick="window.location.href='https://wa.me/50376558874'">
+
+Quiero invertir
+
+</button>
+
+<br>
+
+<button class="requirements-button"
+onclick="window.location.href='https://wa.me/50376558874'">
+
+Consultar requisitos ahora
+
+</button>
+
+<p class="rate-note">
+*Las tasas pueden variar según condiciones del mercado y políticas internas.
+</p>
+
+</div>
+
+
+<!-- ==================================================
+     TARJETAS DE SERVICIOS
+================================================== -->
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
+width="50"
+alt="Créditos de Consumo">
+
+<h3>
+Créditos de Consumo
+</h3>
+
+<p>
+Financiamiento rápido.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/69/69524.png"
+width="50"
+alt="Créditos Vivienda">
+
+<h3>
+Créditos Vivienda
+</h3>
+
+<p>
+Tu casa propia.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1077/1077976.png"
+width="50"
+alt="Créditos Comercio">
+
+<h3>
+Créditos Comercio
+</h3>
+
+<p>
+Impulsá tu negocio.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
+width="50"
+alt="Cuentas de Ahorro">
+
+<h3>
+Cuentas de Ahorro
+</h3>
+
+<p>
+Tu dinero seguro.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+width="50"
+alt="Depósitos a Plazo">
+
+<h3>
+Depósitos a Plazo
+</h3>
+
+<p>
+Mayor rendimiento.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     NOSOTROS
+================================================== -->
+
+<div class="about-section">
+
+<h2>
+Nosotros
+</h2>
+
+<p class="about-intro">
+Conocé quiénes somos, nuestro propósito y hacia dónde queremos llevar a SUCHICOOP.
+</p>
+
+<div class="about-grid">
+
+
+<!-- QUIÉNES SOMOS -->
+
+<div class="about-card">
+
+<div class="about-icon">
+🤝
+</div>
+
+<h3>
+Quiénes Somos
+</h3>
+
+<p>
+Somos una sociedad cooperativa enfocada en el crecimiento económico de nuestros socios y clientes, brindando soluciones accesibles, seguras y confiables.
+</p>
+
+</div>
+
+
+<!-- MISIÓN -->
+
+<div class="about-card">
+
+<div class="about-icon">
+🎯
+</div>
+
+<h3>
+Misión
+</h3>
+
+<p>
+Somos una sociedad cooperativa comprometida con el desarrollo integral de nuestros socios y clientes, brindando servicios de calidad y contribuyendo al progreso económico y social.
+</p>
+
+</div>
+
+
+<!-- VISIÓN -->
+
+<div class="about-card">
+
+<div class="about-icon">
+🌱
+</div>
+
+<h3>
+Visión
+</h3>
+
+<p>
+Ser una sociedad cooperativa sólida, ofreciendo servicios financieros éticos a nuestros socios y clientes, con atención personalizada y en beneficio del crecimiento económico en común.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     NUESTROS SOCIOS
+================================================== -->
+
+<div class="partners-section">
+
+<h2>
+🤝 Nuestros socios, nuestra razón de crecer
+</h2>
+
+<p class="partners-text">
+En SUCHICOOP creemos que una cooperativa se construye con confianza,
+compromiso y trabajo en conjunto. Cada socio forma parte de este proyecto
+y nos impulsa a seguir creando oportunidades para crecer juntos.
+</p>
+
+<img src="socios.jpg"
+alt="Atención a nuestros socios en SUCHICOOP"
+class="partners-image">
+
+</div>
+
+
+<!-- ==================================================
+     POR QUÉ ELEGIRNOS
+================================================== -->
+
+<div class="choose-section">
+
+<h2>
+¿Por qué elegirnos?
+</h2>
+
+<div class="choose-grid">
+
+<div class="choose-item">
+✔ Respuesta rápida
+</div>
+
+<div class="choose-item">
+✔ Créditos accesibles
+</div>
+
+<div class="choose-item">
+✔ Atención directa por WhatsApp
+</div>
+
+<div class="choose-item">
+✔ Sin trámites complicados
+</div>
+
+</div>
+
+<button class="btn"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20mi%20crédito'">
+
+Solicitar crédito ahora
+
+</button>
+
+</div>
+
+
+<!-- ==================================================
+     PREGUNTAS FRECUENTES
+================================================== -->
+
+<div class="faq-section">
+
+<h2 class="section-title">
+Preguntas frecuentes
+</h2>
+
+<p class="section-description">
+Conocé algunas respuestas a las preguntas más comunes sobre nuestros servicios.
+</p>
+
+<div class="faq-container">
+
+<div class="faq-item">
+
+<h3>
+¿Dónde están ubicados?
+</h3>
+
+<p>
+Estamos ubicados en Final Barrio La Cruz, Avenida Rafael Palacios #113, Suchitoto, Cuscatlán, El Salvador.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Cómo puedo solicitar información sobre un crédito?
+</h3>
+
+<p>
+Podés comunicarte directamente con nosotros por WhatsApp y nuestro equipo te orientará sobre los requisitos y el proceso.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Puedo consultar sobre depósitos a plazo?
+</h3>
+
+<p>
+Sí. Podés comunicarte con SUCHICOOP para conocer las opciones disponibles, plazos, tasas y requisitos.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Las tasas publicadas son definitivas?
+</h3>
+
+<p>
+Las tasas mostradas son referenciales y pueden variar de acuerdo con las condiciones del mercado y las políticas internas.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     CUMPLIMIENTO LEGAL
+================================================== -->
+
+<div class="legal-section">
+
+<h2>
+Cumplimiento Legal
+</h2>
+
+<p>
+En SUCHICOOP operamos conforme a las leyes de la República de El Salvador,
+apegados a las normativas vigentes aplicables a nuestras operaciones,
+garantizando transparencia, seguridad y confianza en cada una de nuestras operaciones.
+</p>
+
+</div>
+
+
+<!-- ==================================================
+     UBICACIÓN
+================================================== -->
+
+<div class="location-section">
+
+<h2>
+📍 Ubicación
+</h2>
+
+<p>
+Final Barrio La Cruz, Avenida Rafael Palacios #113,
+Suchitoto, Cuscatlán, El Salvador.
+<br>
+<strong>Teléfonos:</strong>
+50376558874 / 50376559431
+</p>
+
+<iframe
+class="map"
+src="https://maps.google.com/maps?q=Suchitoto&output=embed">
+</iframe>
+
+</div>
+
+
+<!-- ==================================================
+     LLAMADO FINAL
+================================================== -->
+
+<div class="final-cta">
+
+<h2>
+¿Querés conocer más sobre SUCHICOOP?
+</h2>
+
+<p>
+Estamos para orientarte. Comunicate con nosotros y conocé las opciones disponibles para vos.
+</p>
+
+<button class="btn"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20SUCHICOOP'">
+
+💬 Contactar por WhatsApp
+
+</button>
+
+</div>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<div class="footer">
+
+<p>
+© 2026 SUCHICOOP — Sociedad Cooperativa
+</p>
+
+<p>
+Suchitoto, Cuscatlán, El Salvador
+</p>
+
+</div>
+
+
+<!-- ==================================================
+     WHATSAPP FLOTANTE
+================================================== -->
+
+<a
+href="https://wa.me/50376558874?text=Hola,%20quiero%20información%20de%20crédito"
+class="whatsapp">
+
 💬
-</a></body>
+
+</a>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+function actualizarTasa(){
+
+let plazo=document.getElementById("plazo").value;
+let tasa=0;
+
+if(plazo==30) tasa=3.50;
+if(plazo==60) tasa=3.75;
+if(plazo==90) tasa=4.0;
+if(plazo==120) tasa=4.25;
+if(plazo==150) tasa=4.50;
+if(plazo==180) tasa=4.75;
+if(plazo==360) tasa=5.0;
+
+if(tasa>0){
+
+document.getElementById("tasa").value=tasa+" % anual";
+
+}else{
+
+document.getElementById("tasa").value="";
+
+}
+
+}
+
+
+function calcular(){
+
+let monto=parseFloat(
+document.getElementById("monto").value
+);
+
+let plazo=parseFloat(
+document.getElementById("plazo").value
+);
+
+let tasaTexto=document.getElementById("tasa").value;
+
+let tasa=parseFloat(tasaTexto);
+
+if(monto && plazo && tasa){
+
+let interes=
+monto*(tasa/100)*(plazo/360);
+
+let total=
+monto+interes;
+
+document.getElementById("resultado").innerHTML=
+
+"💰 Intereses generados: $"+
+interes.toFixed(2)+
+
+"<br>🏦 Total al vencimiento: $"+
+total.toFixed(2);
+
+}else{
+
+document.getElementById("resultado").innerHTML=
+"⚠️ Ingresá el monto y seleccioná un plazo.";
+
+}
+
+}
+
+</script>
+
+</body>
 </html>
