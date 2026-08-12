@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUCHICOOP</title>
+
+<title>SUCHICOOP | Sociedad Cooperativa</title>
 
 <style>
 
@@ -13,6 +15,7 @@ box-sizing:border-box;
 
 html{
 scroll-behavior:smooth;
+scroll-padding-top:80px;
 }
 
 body{
@@ -62,6 +65,78 @@ transform:translateY(0);
 }
 }
 
+@keyframes subir{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-5px);
+}
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 35px;
+background:rgba(5,12,10,.88);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(0,255,136,.15);
+z-index:1000;
+}
+
+.nav-logo{
+height:48px;
+width:auto;
+border-radius:10px;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.nav-links a{
+color:#ddd;
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+padding:10px 12px;
+border-radius:10px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#00ff88;
+background:rgba(0,255,136,.08);
+}
+
+.nav-whatsapp{
+background:#00ff88 !important;
+color:#06100b !important;
+padding:10px 16px !important;
+}
+
+.menu-button{
+display:none;
+background:none;
+border:none;
+color:#00ff88;
+font-size:30px;
+cursor:pointer;
+}
+
 /* =========================
    HERO
 ========================= */
@@ -73,7 +148,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:50px 20px;
+padding:110px 20px 50px;
 background:linear-gradient(270deg,#0f3d2e,#0b0f14,#1b5e20);
 background-size:600% 600%;
 animation:gradientMove 10s ease infinite;
@@ -87,10 +162,19 @@ box-shadow:0 0 10px #00ff88,0 0 40px #00ff88;
 animation:brillo 2s infinite alternate;
 }
 
+.hero-badge{
+color:#00ff88;
+font-weight:700;
+letter-spacing:2px;
+font-size:12px;
+margin:20px 0 10px;
+}
+
 .hero h1{
-font-size:42px;
+font-size:44px;
 line-height:1.1;
-margin:15px 0 20px;
+margin:10px 0 20px;
+max-width:850px;
 }
 
 .hero-subtitle{
@@ -98,16 +182,24 @@ font-size:20px;
 color:#ddd;
 max-width:800px;
 line-height:1.5;
+margin:0 auto;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:30px;
 }
 
 .hero-button{
-margin-top:30px;
-padding:20px 50px;
+padding:18px 35px;
 border:none;
 border-radius:50px;
 background:linear-gradient(90deg,#00ff88,#00c853);
 color:black;
-font-size:20px;
+font-size:18px;
 font-weight:800;
 cursor:pointer;
 transition:.3s;
@@ -118,10 +210,33 @@ transform:scale(1.05);
 box-shadow:0 0 25px rgba(0,255,136,.5);
 }
 
+.hero-button.secondary{
+background:transparent;
+color:#00ff88;
+border:1px solid #00ff88;
+}
+
 .hero-small{
-margin-top:15px;
+margin-top:18px;
 color:#aaa;
 font-size:14px;
+}
+
+.hero-trust{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.hero-trust span{
+padding:9px 15px;
+border-radius:30px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(0,255,136,.15);
+color:#ddd;
+font-size:13px;
 }
 
 /* =========================
@@ -174,51 +289,19 @@ line-height:1.6;
 ========================= */
 
 .services{
-padding:45px 20px 20px;
+padding:60px 20px 25px;
 }
 
 .services-title{
 font-size:34px;
-margin-bottom:30px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:20px;
-max-width:1100px;
-margin:35px auto;
-padding:0 20px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-transition:all .3s ease;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
-
-.card img{
 margin-bottom:15px;
-filter:drop-shadow(0 0 5px #00ff88);
 }
 
-.card:hover{
-transform:translateY(-10px) scale(1.03);
-border:1px solid #00ff88;
-box-shadow:0 0 20px rgba(0,255,136,.4);
-}
-
-.card h3{
-margin:8px 0;
-}
-
-.card p{
-font-size:15px;
+.services-intro{
+max-width:750px;
+margin:0 auto 35px;
+color:#bbb;
+line-height:1.6;
 }
 
 /* =========================
@@ -229,6 +312,7 @@ font-size:15px;
 overflow-x:auto;
 max-width:900px;
 margin:0 auto;
+border-radius:15px;
 }
 
 table{
@@ -253,8 +337,12 @@ tr:nth-child(even){
 background:#1a222c;
 }
 
+tr:hover{
+background:#202c38;
+}
+
 /* =========================
-   CALCULADORA
+   CALCULADORAS
 ========================= */
 
 .calculator{
@@ -265,12 +353,18 @@ padding:30px;
 border-radius:20px;
 backdrop-filter:blur(10px);
 box-shadow:0 0 30px rgba(0,0,0,.6);
+border:1px solid rgba(0,255,136,.12);
+}
+
+.calculator h2{
+color:#00ff88;
 }
 
 .calculator label{
 display:block;
 margin-top:15px;
 margin-bottom:5px;
+text-align:left;
 }
 
 .calculator input,
@@ -281,6 +375,8 @@ margin:5px 0;
 border-radius:10px;
 border:none;
 font-size:16px;
+background:#fff;
+color:#111;
 }
 
 .calculator input:focus,
@@ -297,11 +393,136 @@ border-radius:12px;
 font-weight:bold;
 cursor:pointer;
 margin-top:15px;
+font-size:16px;
+}
+
+.calculate-button:hover{
+background:#00c853;
+}
+
+.resultado-box{
+margin-top:20px;
+padding:20px;
+background:rgba(0,255,136,.06);
+border:1px solid rgba(0,255,136,.2);
+border-radius:15px;
 }
 
 #resultado{
-margin-top:20px;
+margin:0;
 color:#00ff88;
+line-height:1.8;
+}
+
+#resultadoCredito{
+margin:0;
+color:#00ff88;
+line-height:1.8;
+}
+
+.calculator-note{
+font-size:12px;
+color:#888;
+line-height:1.5;
+margin-top:15px;
+}
+
+/* =========================
+   CALCULADORA CRÉDITO
+========================= */
+
+.credit-calculator{
+max-width:650px;
+margin:45px auto;
+background:linear-gradient(
+135deg,
+rgba(15,61,46,.75),
+rgba(255,255,255,.04)
+);
+padding:32px;
+border-radius:25px;
+border:1px solid rgba(0,255,136,.2);
+box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
+
+.credit-calculator h2{
+font-size:30px;
+margin-bottom:10px;
+color:#00ff88;
+}
+
+.credit-intro{
+color:#bbb;
+line-height:1.6;
+margin-bottom:25px;
+}
+
+.credit-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.credit-field{
+text-align:left;
+}
+
+.credit-field.full{
+grid-column:1 / -1;
+}
+
+.credit-field label{
+display:block;
+margin-bottom:6px;
+color:#ddd;
+font-weight:bold;
+}
+
+.credit-field input,
+.credit-field select{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+font-size:16px;
+background:white;
+color:#111;
+}
+
+.credit-field input:focus,
+.credit-field select:focus{
+outline:2px solid #00ff88;
+}
+
+.credit-result{
+margin-top:25px;
+padding:22px;
+border-radius:18px;
+background:#09120f;
+border:1px solid rgba(0,255,136,.2);
+}
+
+.credit-result-main{
+font-size:28px;
+font-weight:bold;
+color:#00ff88;
+margin-bottom:10px;
+}
+
+.credit-result-detail{
+color:#ddd;
+line-height:1.8;
+}
+
+.whatsapp-credit{
+display:inline-block;
+margin-top:15px;
+padding:13px 22px;
+background:#25D366;
+color:white;
+text-decoration:none;
+font-weight:bold;
+border-radius:30px;
 }
 
 /* =========================
@@ -309,7 +530,7 @@ color:#00ff88;
 ========================= */
 
 .quick-section{
-padding:55px 20px;
+padding:60px 20px;
 text-align:center;
 background:linear-gradient(135deg,#0b0f14,#0f3d2e);
 }
@@ -366,7 +587,7 @@ font-size:14px;
 ========================= */
 
 .invest-section{
-padding:35px 20px 20px;
+padding:45px 20px 30px;
 text-align:center;
 }
 
@@ -378,19 +599,9 @@ margin-bottom:10px;
 margin:0 auto 15px;
 }
 
-.invest-button{
-margin-top:5px;
-padding:12px 30px;
-border:none;
-border-radius:30px;
-background:linear-gradient(90deg,#00ff88,#00c853);
-color:black;
-font-weight:bold;
-cursor:pointer;
-}
-
+.invest-button,
 .requirements-button{
-margin-top:10px;
+margin-top:8px;
 padding:12px 30px;
 border:none;
 border-radius:30px;
@@ -407,11 +618,54 @@ font-size:13px;
 }
 
 /* =========================
+   TARJETAS
+========================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:20px;
+max-width:1100px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+transition:all .3s ease;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.card img{
+margin-bottom:15px;
+filter:drop-shadow(0 0 5px #00ff88);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+border:1px solid #00ff88;
+box-shadow:0 0 20px rgba(0,255,136,.4);
+}
+
+.card h3{
+margin:8px 0;
+}
+
+.card p{
+font-size:15px;
+}
+
+/* =========================
    NOSOTROS
 ========================= */
 
 .about-section{
-padding:55px 20px;
+padding:60px 20px;
 max-width:1100px;
 margin:auto;
 background:linear-gradient(135deg,#0f3d2e,#10251e);
@@ -482,7 +736,7 @@ line-height:1.7;
 ========================= */
 
 .partners-section{
-padding:55px 20px;
+padding:60px 20px;
 text-align:center;
 }
 
@@ -512,21 +766,22 @@ box-shadow:0 10px 35px rgba(0,0,0,.5);
 ========================= */
 
 .choose-section{
-padding:50px 20px;
+padding:60px 20px;
 background:#111;
 }
 
 .choose-grid{
 display:grid;
+grid-template-columns:repeat(2,1fr);
 gap:12px;
-max-width:500px;
+max-width:650px;
 margin:auto;
 text-align:left;
 }
 
 .choose-item{
 background:rgba(255,255,255,.04);
-padding:12px 18px;
+padding:15px 18px;
 border-radius:12px;
 border-left:3px solid #00ff88;
 }
@@ -536,7 +791,7 @@ border-left:3px solid #00ff88;
 ========================= */
 
 .legal-section{
-padding:55px 20px;
+padding:60px 20px;
 background:linear-gradient(120deg,#0f3d2e,#0b0f14);
 text-align:center;
 }
@@ -554,7 +809,7 @@ line-height:1.6;
 ========================= */
 
 .location-section{
-padding:45px 20px 70px;
+padding:50px 20px 70px;
 text-align:center;
 }
 
@@ -574,11 +829,11 @@ box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 /* =========================
-   PREGUNTAS FRECUENTES
+   FAQ
 ========================= */
 
 .faq-section{
-padding:55px 20px;
+padding:60px 20px;
 background:#0b0f14;
 }
 
@@ -592,20 +847,45 @@ text-align:left;
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
 border-radius:15px;
-padding:18px 20px;
 margin-bottom:12px;
+overflow:hidden;
 }
 
-.faq-item h3{
-margin:0 0 8px;
+.faq-question{
+width:100%;
+padding:19px 20px;
+border:none;
+background:transparent;
+color:white;
+text-align:left;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.faq-question span{
 color:#00ff88;
-font-size:18px;
+font-size:22px;
+transition:.3s;
 }
 
-.faq-item p{
-margin:0;
+.faq-answer{
+display:none;
+padding:0 20px 20px;
+color:#ccc;
 line-height:1.6;
 font-size:15px;
+}
+
+.faq-item.active .faq-answer{
+display:block;
+}
+
+.faq-item.active .faq-question span{
+transform:rotate(45deg);
 }
 
 /* =========================
@@ -613,7 +893,7 @@ font-size:15px;
 ========================= */
 
 .final-cta{
-padding:60px 20px;
+padding:70px 20px;
 text-align:center;
 background:linear-gradient(135deg,#0f3d2e,#0b0f14);
 }
@@ -657,7 +937,7 @@ transform:scale(1.1);
 ========================= */
 
 .footer{
-padding:30px 20px;
+padding:35px 20px;
 background:#080b0e;
 border-top:1px solid rgba(0,255,136,.15);
 }
@@ -672,10 +952,67 @@ margin:5px;
    CELULARES
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:800px){
+
+.navbar{
+padding:0 18px;
+}
+
+.menu-button{
+display:block;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+padding:15px;
+background:rgba(5,12,10,.97);
+flex-direction:column;
+border-bottom:1px solid rgba(0,255,136,.15);
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.nav-links a{
+width:100%;
+text-align:center;
+}
 
 .hero{
-padding:35px 15px;
+padding-top:110px;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+.credit-grid{
+grid-template-columns:1fr;
+}
+
+.credit-field.full{
+grid-column:auto;
+}
+
+.choose-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.nav-logo{
+height:42px;
+}
+
+.hero{
+padding:105px 15px 40px;
 }
 
 .hero-logo{
@@ -691,9 +1028,22 @@ font-size:31px;
 font-size:17px;
 }
 
+.hero-buttons{
+flex-direction:column;
+width:100%;
+max-width:350px;
+}
+
 .hero-button{
+width:100%;
 padding:16px 25px;
 font-size:16px;
+}
+
+.hero-trust{
+flex-direction:column;
+width:100%;
+max-width:300px;
 }
 
 .section{
@@ -701,7 +1051,7 @@ padding:40px 15px;
 }
 
 .services{
-padding:35px 15px 10px;
+padding:45px 15px 20px;
 }
 
 .grid{
@@ -722,6 +1072,15 @@ font-size:13px;
 .calculator{
 padding:22px 18px;
 margin:30px auto;
+}
+
+.credit-calculator{
+padding:24px 18px;
+margin:30px 10px;
+}
+
+.credit-calculator h2{
+font-size:26px;
 }
 
 .about-section{
@@ -769,21 +1128,66 @@ right:15px;
 }
 
 </style>
+
 </head>
 
 <body>
+
+
+<!-- ==================================================
+     NAVEGACIÓN
+================================================== -->
+
+<nav class="navbar">
+
+<a href="#inicio">
+<img src="logo.png" class="nav-logo" alt="SUCHICOOP">
+</a>
+
+<button
+class="menu-button"
+onclick="toggleMenu()"
+aria-label="Abrir menú">
+☰
+</button>
+
+<div class="nav-links" id="navLinks">
+
+<a href="#creditos" onclick="closeMenu()">Créditos</a>
+
+<a href="#depositos" onclick="closeMenu()">Depósitos</a>
+
+<a href="#nosotros" onclick="closeMenu()">Nosotros</a>
+
+<a href="#socios" onclick="closeMenu()">Socios</a>
+
+<a href="#faq" onclick="closeMenu()">Preguntas</a>
+
+<a href="#ubicacion" onclick="closeMenu()">Ubicación</a>
+
+<a
+href="https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20SUCHICOOP"
+class="nav-whatsapp">
+WhatsApp
+</a>
+
+</div>
+
+</nav>
+
 
 <!-- ==================================================
      PORTADA
 ================================================== -->
 
-<div class="hero">
+<div class="hero" id="inicio">
 
-<img src="logo.png"
+<img
+src="logo.png"
 class="hero-logo"
 alt="SUCHICOOP">
 
-<p style="color:#00ff88;font-weight:700;letter-spacing:2px;font-size:12px;margin-bottom:10px;">
+<p class="hero-badge">
 SOCIEDAD COOPERATIVA EN EL SALVADOR
 </p>
 
@@ -792,17 +1196,38 @@ Finanzas modernas con respaldo real
 </h1>
 
 <p class="hero-subtitle">
-Aprobación rápida • Proceso transparente • Atención personalizada e inmediata por WhatsApp
+Atención rápida, procesos transparentes y soluciones financieras pensadas para nuestros socios.
 </p>
 
-<button class="hero-button"
-onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20mi%20crédito'">
-QUIERO MI CRÉDITO POR WHATSAPP
+<div class="hero-buttons">
+
+<button
+class="hero-button"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20un%20crédito'">
+QUIERO INFORMACIÓN SOBRE MI CRÉDITO
 </button>
 
+<button
+class="hero-button secondary"
+onclick="document.getElementById('depositos').scrollIntoView()">
+CONOCER DEPÓSITOS A PLAZO
+</button>
+
+</div>
+
 <p class="hero-small">
-✔ Atención inmediata • ✔ Sin compromiso • ✔ 100% confidencial
+✔ Atención personalizada • ✔ Información confidencial • ✔ Sin compromiso
 </p>
+
+<div class="hero-trust">
+
+<span>⚡ Respuesta rápida</span>
+
+<span>🤝 Atención personalizada</span>
+
+<span>🔒 Información confidencial</span>
+
+</div>
 
 </div>
 
@@ -811,20 +1236,28 @@ QUIERO MI CRÉDITO POR WHATSAPP
      SERVICIOS FINANCIEROS
 ================================================== -->
 
-<div class="services">
+<div class="services" id="creditos">
 
 <h2 class="services-title">
 Servicios Financieros
 </h2>
 
-<!-- TABLA DE TASAS -->
+<p class="services-intro">
+Conocé nuestras opciones de financiamiento y productos financieros.
+Las condiciones están sujetas a evaluación y a las políticas aplicables.
+</p>
+
+
+<!-- ==================================================
+     TABLA DE TASAS
+================================================== -->
 
 <h2>
 Tabla de Tasas de Interés
 </h2>
 
 <p style="margin-bottom:25px;">
-Tasas referenciales sujetas a evaluación crediticia
+Tasas referenciales sujetas a evaluación crediticia.
 </p>
 
 <div class="table-container">
@@ -873,59 +1306,192 @@ Tasas referenciales sujetas a evaluación crediticia
 
 
 <!-- ==================================================
-     CALCULADORA
+     CALCULADORA DE CRÉDITO
 ================================================== -->
 
-<div class="calculator">
+<div class="credit-calculator">
 
 <h2>
-Calculadora de Depósito a Plazo
+💳 Calculá tu cuota
 </h2>
 
+<p class="credit-intro">
+Realizá una simulación aproximada de tu crédito.
+La cuota final dependerá de la evaluación y condiciones aprobadas.
+</p>
+
+<div class="credit-grid">
+
+<div class="credit-field full">
+
 <label>
-Monto a invertir ($)
+Tipo de crédito
 </label>
 
-<input id="monto"
-type="number"
-placeholder="Ej: 1000">
+<select id="tipoCredito" onchange="actualizarTasaCredito()">
 
-<label>
-Plazo
-</label>
-
-<select id="plazo"
-onchange="actualizarTasa()">
-
-<option value="">
-Seleccionar plazo
+<option value="consumo">
+Crédito de Consumo
 </option>
 
-<option value="30">30 días</option>
-<option value="60">60 días</option>
-<option value="90">90 días</option>
-<option value="120">120 días</option>
-<option value="150">150 días</option>
-<option value="180">180 días</option>
-<option value="360">360 días</option>
+<option value="vivienda">
+Crédito para Vivienda
+</option>
+
+<option value="comercio">
+Crédito para Comercio
+</option>
+
+<option value="produccion">
+Crédito para Producción
+</option>
+
+<option value="servicios">
+Servicios
+</option>
 
 </select>
 
+</div>
+
+
+<div class="credit-field">
+
 <label>
-Tasa de interés
+Monto solicitado ($)
 </label>
 
-<input id="tasa"
-type="text"
-readonly
-style="background:#222;color:#00ff88;">
+<input
+id="montoCredito"
+type="number"
+min="1"
+placeholder="Ej: 10000">
 
-<button class="calculate-button"
-onclick="calcular()">
-Calcular ganancias
+</div>
+
+
+<div class="credit-field">
+
+<label>
+Plazo (meses)
+</label>
+
+<select id="plazoCredito">
+
+<option value="6">6 meses</option>
+<option value="12">12 meses</option>
+<option value="18">18 meses</option>
+<option value="24">24 meses</option>
+<option value="36">36 meses</option>
+<option value="48">48 meses</option>
+<option value="60">60 meses</option>
+<option value="120">120 meses</option>
+<option value="180">180 meses</option>
+<option value="240">240 meses</option>
+
+</select>
+
+</div>
+
+
+<div class="credit-field full">
+
+<label>
+Tasa anual para simulación
+</label>
+
+<input
+id="tasaCredito"
+type="number"
+step="0.01"
+value="10">
+
+</div>
+
+</div>
+
+
+<button
+class="calculate-button"
+onclick="calcularCredito()">
+
+CALCULAR CUOTA
+
 </button>
 
-<h3 id="resultado"></h3>
+
+<div class="credit-result">
+
+<div
+class="credit-result-main"
+id="cuotaCredito">
+
+$0.00
+</div>
+
+<div
+class="credit-result-detail"
+id="resultadoCredito">
+
+Ingresá el monto y calculá tu cuota aproximada.
+
+</div>
+
+<a
+id="whatsappCredito"
+class="whatsapp-credit"
+href="#"
+style="display:none;">
+
+💬 Consultar esta simulación por WhatsApp
+
+</a>
+
+</div>
+
+
+<p class="calculator-note">
+* Esta calculadora realiza una simulación matemática aproximada utilizando
+la tasa anual indicada. No constituye una aprobación ni una oferta definitiva
+de crédito. La cuota final puede variar según las condiciones aprobadas.
+</p>
+
+</div>
+
+
+<!-- ==================================================
+     REQUISITOS
+================================================== -->
+
+<div class="section-tight">
+
+<h2>
+Requisitos para solicitar crédito
+</h2>
+
+<div style="
+max-width:600px;
+margin:auto;
+text-align:left;
+color:#ccc;
+">
+
+<p>✔ DUI</p>
+<p>✔ Comprobante de ingresos</p>
+<p>✔ Comprobante de remesas</p>
+<p>✔ Comprobante de negocio</p>
+<p>✔ Recibo de servicios</p>
+<p>✔ Referencias personales</p>
+
+</div>
+
+<button
+class="btn"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20conocer%20los%20requisitos%20para%20solicitar%20un%20crédito'">
+
+Consultar requisitos
+
+</button>
 
 </div>
 
@@ -934,14 +1500,14 @@ Calcular ganancias
      DEPÓSITOS A PLAZO
 ================================================== -->
 
-<div class="section-tight">
+<div class="section-tight" id="depositos">
 
 <h2>
-Depósitos a Plazo
+💰 Depósitos a Plazo
 </h2>
 
 <p style="margin-bottom:25px;">
-Tasas de interés referenciales según plazo de inversión
+Hacé crecer tus recursos con nuestras opciones de depósitos a plazo.
 </p>
 
 <div class="table-container">
@@ -1000,32 +1566,76 @@ Tasas de interés referenciales según plazo de inversión
 
 </div>
 
-</div>
-
 
 <!-- ==================================================
-     REQUISITOS
+     CALCULADORA DEPÓSITO
 ================================================== -->
 
-<div class="section-tight">
+<div class="calculator">
 
 <h2>
-Requisitos para solicitar crédito
+Calculadora de Depósito a Plazo
 </h2>
 
-<div style="
-max-width:600px;
-margin:auto;
-text-align:left;
-color:#ccc;
-">
+<label>
+Monto a invertir ($)
+</label>
 
-<p>✔ DUI</p>
-<p>✔ Comprobante de ingresos</p>
-<p>✔ Comprobante de remesas</p>
-<p>✔ Comprobante de negocio</p>
-<p>✔ Recibo de servicios</p>
-<p>✔ Referencias personales</p>
+<input
+id="monto"
+type="number"
+placeholder="Ej: 1000">
+
+<label>
+Plazo
+</label>
+
+<select
+id="plazo"
+onchange="actualizarTasa()">
+
+<option value="">
+Seleccionar plazo
+</option>
+
+<option value="30">30 días</option>
+<option value="60">60 días</option>
+<option value="90">90 días</option>
+<option value="120">120 días</option>
+<option value="150">150 días</option>
+<option value="180">180 días</option>
+<option value="360">360 días</option>
+
+</select>
+
+<label>
+Tasa de interés
+</label>
+
+<input
+id="tasa"
+type="text"
+readonly
+style="background:#222;color:#00ff88;">
+
+<button
+class="calculate-button"
+onclick="calcular()">
+
+Calcular ganancias
+
+</button>
+
+<div class="resultado-box">
+
+<h3 id="resultado"></h3>
+
+</div>
+
+<p class="calculator-note">
+* Cálculo referencial basado en la tasa y plazo seleccionados.
+Las condiciones definitivas serán informadas por SUCHICOOP.
+</p>
 
 </div>
 
@@ -1043,39 +1653,66 @@ color:#ccc;
 </h2>
 
 <p class="quick-description">
-Atendemos tu solicitud de forma rápida, clara y personalizada.
-Nuestro equipo está listo para orientarte y ayudarte a encontrar la opción que mejor se adapte a tus necesidades.
+Atendemos tus consultas de forma rápida, clara y personalizada.
+Nuestro equipo está listo para orientarte sobre nuestras opciones financieras.
 </p>
 
 <div class="quick-grid">
 
 <div class="quick-card">
-<div class="quick-icon">⚡</div>
-<h3>Respuesta rápida</h3>
-<p>
-Agilizá tu solicitud y recibí atención oportuna.
-</p>
+
+<div class="quick-icon">
+⚡
 </div>
 
+<h3>
+Respuesta rápida
+</h3>
+
+<p>
+Agilizá tu consulta y recibí atención oportuna.
+</p>
+
+</div>
+
+
 <div class="quick-card">
-<div class="quick-icon">🤝</div>
-<h3>Atención personalizada</h3>
+
+<div class="quick-icon">
+🤝
+</div>
+
+<h3>
+Atención personalizada
+</h3>
+
 <p>
 Estamos para escucharte y orientarte.
 </p>
+
 </div>
 
+
 <div class="quick-card">
-<div class="quick-icon">🔒</div>
-<h3>Información confidencial</h3>
+
+<div class="quick-icon">
+🔒
+</div>
+
+<h3>
+Información confidencial
+</h3>
+
 <p>
 Tratamos tu información con responsabilidad.
 </p>
-</div>
 
 </div>
 
-<button class="btn"
+</div>
+
+<button
+class="btn"
 onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20los%20servicios%20de%20SUCHICOOP'">
 
 💬 Hablar con SUCHICOOP
@@ -1096,11 +1733,12 @@ Invertí tu dinero con nosotros
 </h2>
 
 <p>
-Ofrecemos opciones de ahorro seguras con tasas competitivas en depósitos a plazo.
+Conocé nuestras opciones de depósitos a plazo y las tasas disponibles según el plazo de inversión.
 </p>
 
-<button class="invest-button"
-onclick="window.location.href='https://wa.me/50376558874'">
+<button
+class="invest-button"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20depósitos%20a%20plazo'">
 
 Quiero invertir
 
@@ -1108,15 +1746,16 @@ Quiero invertir
 
 <br>
 
-<button class="requirements-button"
-onclick="window.location.href='https://wa.me/50376558874'">
+<button
+class="requirements-button"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20consultar%20los%20requisitos%20para%20un%20depósito%20a%20plazo'">
 
-Consultar requisitos ahora
+Consultar requisitos
 
 </button>
 
 <p class="rate-note">
-*Las tasas pueden variar según condiciones del mercado y políticas internas.
+* Las tasas pueden variar según las condiciones vigentes y políticas internas.
 </p>
 
 </div>
@@ -1130,7 +1769,8 @@ Consultar requisitos ahora
 
 <div class="card">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
+<img
+src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
 width="50"
 alt="Créditos de Consumo">
 
@@ -1139,7 +1779,7 @@ Créditos de Consumo
 </h3>
 
 <p>
-Financiamiento rápido.
+Financiamiento para tus necesidades.
 </p>
 
 </div>
@@ -1147,7 +1787,8 @@ Financiamiento rápido.
 
 <div class="card">
 
-<img src="https://cdn-icons-png.flaticon.com/512/69/69524.png"
+<img
+src="https://cdn-icons-png.flaticon.com/512/69/69524.png"
 width="50"
 alt="Créditos Vivienda">
 
@@ -1156,7 +1797,7 @@ Créditos Vivienda
 </h3>
 
 <p>
-Tu casa propia.
+Una opción para acercarte a tu casa propia.
 </p>
 
 </div>
@@ -1164,7 +1805,8 @@ Tu casa propia.
 
 <div class="card">
 
-<img src="https://cdn-icons-png.flaticon.com/512/1077/1077976.png"
+<img
+src="https://cdn-icons-png.flaticon.com/512/1077/1077976.png"
 width="50"
 alt="Créditos Comercio">
 
@@ -1173,7 +1815,7 @@ Créditos Comercio
 </h3>
 
 <p>
-Impulsá tu negocio.
+Impulsá el crecimiento de tu negocio.
 </p>
 
 </div>
@@ -1181,7 +1823,8 @@ Impulsá tu negocio.
 
 <div class="card">
 
-<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
+<img
+src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
 width="50"
 alt="Cuentas de Ahorro">
 
@@ -1190,7 +1833,7 @@ Cuentas de Ahorro
 </h3>
 
 <p>
-Tu dinero seguro.
+Una opción para administrar y guardar tus recursos.
 </p>
 
 </div>
@@ -1198,7 +1841,8 @@ Tu dinero seguro.
 
 <div class="card">
 
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+<img
+src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
 width="50"
 alt="Depósitos a Plazo">
 
@@ -1207,7 +1851,7 @@ Depósitos a Plazo
 </h3>
 
 <p>
-Mayor rendimiento.
+Buscá un mejor rendimiento para tus recursos.
 </p>
 
 </div>
@@ -1219,7 +1863,9 @@ Mayor rendimiento.
      NOSOTROS
 ================================================== -->
 
-<div class="about-section">
+<div
+class="about-section"
+id="nosotros">
 
 <h2>
 Nosotros
@@ -1232,8 +1878,6 @@ Conocé quiénes somos, nuestro propósito y hacia dónde queremos llevar a SUCH
 <div class="about-grid">
 
 
-<!-- QUIÉNES SOMOS -->
-
 <div class="about-card">
 
 <div class="about-icon">
@@ -1245,13 +1889,12 @@ Quiénes Somos
 </h3>
 
 <p>
-Somos una sociedad cooperativa enfocada en el crecimiento económico de nuestros socios y clientes, brindando soluciones accesibles, seguras y confiables.
+Somos una sociedad cooperativa comprometida con el crecimiento económico
+y social de nuestros socios, brindando soluciones accesibles, seguras y confiables.
 </p>
 
 </div>
 
-
-<!-- MISIÓN -->
 
 <div class="about-card">
 
@@ -1264,13 +1907,13 @@ Misión
 </h3>
 
 <p>
-Somos una sociedad cooperativa comprometida con el desarrollo integral de nuestros socios y clientes, brindando servicios de calidad y contribuyendo al progreso económico y social.
+Somos una sociedad cooperativa comprometida con el desarrollo integral
+de nuestros socios, brindando servicios de calidad y contribuyendo
+al progreso económico y social.
 </p>
 
 </div>
 
-
-<!-- VISIÓN -->
 
 <div class="about-card">
 
@@ -1283,7 +1926,8 @@ Visión
 </h3>
 
 <p>
-Ser una sociedad cooperativa sólida, ofreciendo servicios financieros éticos a nuestros socios y clientes, con atención personalizada y en beneficio del crecimiento económico en común.
+Ser una sociedad cooperativa sólida, ofreciendo servicios financieros éticos
+a nuestros socios, con atención personalizada y en beneficio del crecimiento económico en común.
 </p>
 
 </div>
@@ -1297,7 +1941,9 @@ Ser una sociedad cooperativa sólida, ofreciendo servicios financieros éticos a
      NUESTROS SOCIOS
 ================================================== -->
 
-<div class="partners-section">
+<div
+class="partners-section"
+id="socios">
 
 <h2>
 🤝 Nuestros socios, nuestra razón de crecer
@@ -1309,7 +1955,8 @@ compromiso y trabajo en conjunto. Cada socio forma parte de este proyecto
 y nos impulsa a seguir creando oportunidades para crecer juntos.
 </p>
 
-<img src="socios.jpg"
+<img
+src="socios.jpg"
 alt="Atención a nuestros socios en SUCHICOOP"
 class="partners-image">
 
@@ -1341,15 +1988,24 @@ class="partners-image">
 </div>
 
 <div class="choose-item">
-✔ Sin trámites complicados
+✔ Información clara y transparente
+</div>
+
+<div class="choose-item">
+✔ Atención personalizada
+</div>
+
+<div class="choose-item">
+✔ Productos de ahorro e inversión
 </div>
 
 </div>
 
-<button class="btn"
-onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20mi%20crédito'">
+<button
+class="btn"
+onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20los%20servicios%20de%20SUCHICOOP'">
 
-Solicitar crédito ahora
+Consultar ahora
 
 </button>
 
@@ -1360,7 +2016,9 @@ Solicitar crédito ahora
      PREGUNTAS FRECUENTES
 ================================================== -->
 
-<div class="faq-section">
+<div
+class="faq-section"
+id="faq">
 
 <h2 class="section-title">
 Preguntas frecuentes
@@ -1372,54 +2030,118 @@ Conocé algunas respuestas a las preguntas más comunes sobre nuestros servicios
 
 <div class="faq-container">
 
+
 <div class="faq-item">
 
-<h3>
+<button
+class="faq-question"
+onclick="toggleFAQ(this)">
+
 ¿Dónde están ubicados?
-</h3>
 
-<p>
-Estamos ubicados en Final Barrio La Cruz, Avenida Rafael Palacios #113, Suchitoto, Cuscatlán, El Salvador.
-</p>
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Estamos ubicados en Final Barrio La Cruz,
+Avenida Rafael Palacios #113, Suchitoto,
+Cuscatlán, El Salvador.
+
+</div>
 
 </div>
 
 
 <div class="faq-item">
 
-<h3>
+<button
+class="faq-question"
+onclick="toggleFAQ(this)">
+
 ¿Cómo puedo solicitar información sobre un crédito?
-</h3>
 
-<p>
-Podés comunicarte directamente con nosotros por WhatsApp y nuestro equipo te orientará sobre los requisitos y el proceso.
-</p>
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Podés comunicarte directamente con nosotros por WhatsApp.
+Nuestro equipo te orientará sobre los requisitos,
+las condiciones y el proceso correspondiente.
+
+</div>
 
 </div>
 
 
 <div class="faq-item">
 
-<h3>
+<button
+class="faq-question"
+onclick="toggleFAQ(this)">
+
 ¿Puedo consultar sobre depósitos a plazo?
-</h3>
 
-<p>
-Sí. Podés comunicarte con SUCHICOOP para conocer las opciones disponibles, plazos, tasas y requisitos.
-</p>
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Sí. Podés comunicarte con SUCHICOOP para conocer
+las opciones disponibles, plazos, tasas y requisitos
+de los depósitos a plazo.
+
+</div>
 
 </div>
 
 
 <div class="faq-item">
 
-<h3>
-¿Las tasas publicadas son definitivas?
-</h3>
+<button
+class="faq-question"
+onclick="toggleFAQ(this)">
 
-<p>
-Las tasas mostradas son referenciales y pueden variar de acuerdo con las condiciones del mercado y las políticas internas.
-</p>
+¿Ofrecen cuentas de ahorro?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Sí. SUCHICOOP ofrece cuentas de ahorro.
+Para conocer las condiciones, requisitos y opciones disponibles,
+podés comunicarte directamente con nosotros.
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button
+class="faq-question"
+onclick="toggleFAQ(this)">
+
+¿Las tasas publicadas son definitivas?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Las tasas mostradas son referenciales y pueden variar
+de acuerdo con las condiciones vigentes y las políticas internas.
+Las condiciones definitivas serán informadas por SUCHICOOP.
+
+</div>
 
 </div>
 
@@ -1439,9 +2161,9 @@ Cumplimiento Legal
 </h2>
 
 <p>
-En SUCHICOOP operamos conforme a las leyes de la República de El Salvador,
-apegados a las normativas vigentes aplicables a nuestras operaciones,
-garantizando transparencia, seguridad y confianza en cada una de nuestras operaciones.
+En SUCHICOOP operamos conforme a las leyes de la República de El Salvador
+y a las normativas vigentes aplicables a nuestras operaciones,
+promoviendo transparencia, seguridad y confianza.
 </p>
 
 </div>
@@ -1451,7 +2173,9 @@ garantizando transparencia, seguridad y confianza en cada una de nuestras operac
      UBICACIÓN
 ================================================== -->
 
-<div class="location-section">
+<div
+class="location-section"
+id="ubicacion">
 
 <h2>
 📍 Ubicación
@@ -1461,14 +2185,26 @@ garantizando transparencia, seguridad y confianza en cada una de nuestras operac
 Final Barrio La Cruz, Avenida Rafael Palacios #113,
 Suchitoto, Cuscatlán, El Salvador.
 <br>
+
 <strong>Teléfonos:</strong>
 50376558874 / 50376559431
+
 </p>
 
 <iframe
 class="map"
 src="https://maps.google.com/maps?q=Suchitoto&output=embed">
 </iframe>
+
+<br>
+
+<button
+class="btn"
+onclick="window.open('https://www.google.com/maps/search/?api=1&query=SUCHICOOP+Suchitoto','_blank')">
+
+📍 Cómo llegar
+
+</button>
 
 </div>
 
@@ -1484,10 +2220,12 @@ src="https://maps.google.com/maps?q=Suchitoto&output=embed">
 </h2>
 
 <p>
-Estamos para orientarte. Comunicate con nosotros y conocé las opciones disponibles para vos.
+Estamos para orientarte. Comunicate con nosotros
+y conocé las opciones disponibles para vos.
 </p>
 
-<button class="btn"
+<button
+class="btn"
 onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20información%20sobre%20SUCHICOOP'">
 
 💬 Contactar por WhatsApp
@@ -1511,6 +2249,10 @@ onclick="window.location.href='https://wa.me/50376558874?text=Hola,%20quiero%20i
 Suchitoto, Cuscatlán, El Salvador
 </p>
 
+<p>
+Créditos • Cuentas de Ahorro • Depósitos a Plazo
+</p>
+
 </div>
 
 
@@ -1519,8 +2261,9 @@ Suchitoto, Cuscatlán, El Salvador
 ================================================== -->
 
 <a
-href="https://wa.me/50376558874?text=Hola,%20quiero%20información%20de%20crédito"
-class="whatsapp">
+href="https://wa.me/50376558874?text=Hola,%20quiero%20información%20de%20SUCHICOOP"
+class="whatsapp"
+aria-label="Contactar por WhatsApp">
 
 💬
 
@@ -1533,9 +2276,33 @@ class="whatsapp">
 
 <script>
 
+/* =========================
+   MENÚ MÓVIL
+========================= */
+
+function toggleMenu(){
+
+const menu=document.getElementById("navLinks");
+
+menu.classList.toggle("active");
+
+}
+
+function closeMenu(){
+
+document.getElementById("navLinks").classList.remove("active");
+
+}
+
+
+/* =========================
+   CALCULADORA DEPÓSITO
+========================= */
+
 function actualizarTasa(){
 
 let plazo=document.getElementById("plazo").value;
+
 let tasa=0;
 
 if(plazo==30) tasa=3.50;
@@ -1598,7 +2365,225 @@ document.getElementById("resultado").innerHTML=
 
 }
 
+
+/* =========================
+   TASAS CRÉDITO
+========================= */
+
+function actualizarTasaCredito(){
+
+let tipo=
+document.getElementById("tipoCredito").value;
+
+let tasa=10;
+
+if(tipo==="consumo"){
+tasa=10;
+}
+
+if(tipo==="vivienda"){
+tasa=13;
+}
+
+if(tipo==="comercio"){
+tasa=16;
+}
+
+if(tipo==="produccion"){
+tasa=11;
+}
+
+if(tipo==="servicios"){
+tasa=18;
+}
+
+document.getElementById("tasaCredito").value=tasa;
+
+}
+
+
+/* =========================
+   CALCULADORA CRÉDITO
+========================= */
+
+function calcularCredito(){
+
+let monto=
+parseFloat(
+document.getElementById("montoCredito").value
+);
+
+let plazo=
+parseInt(
+document.getElementById("plazoCredito").value
+);
+
+let tasa=
+parseFloat(
+document.getElementById("tasaCredito").value
+);
+
+if(!monto || monto<=0){
+
+document.getElementById("cuotaCredito").innerHTML="$0.00";
+
+document.getElementById("resultadoCredito").innerHTML=
+"⚠️ Ingresá un monto válido para realizar la simulación.";
+
+document.getElementById("whatsappCredito").style.display="none";
+
+return;
+
+}
+
+if(!plazo || plazo<=0){
+
+document.getElementById("resultadoCredito").innerHTML=
+"⚠️ Seleccioná un plazo.";
+
+return;
+
+}
+
+if(!tasa || tasa<=0){
+
+document.getElementById("resultadoCredito").innerHTML=
+"⚠️ Ingresá una tasa válida.";
+
+return;
+
+}
+
+
+/*
+Fórmula de cuota mensual:
+
+C = P * r / (1 - (1+r)^-n)
+
+P = monto
+r = tasa mensual
+n = número de cuotas
+*/
+
+let tasaMensual=
+(tasa/100)/12;
+
+let cuota;
+
+if(tasaMensual===0){
+
+cuota=monto/plazo;
+
+}else{
+
+cuota=
+monto*
+tasaMensual/
+(1-Math.pow(1+tasaMensual,-plazo));
+
+}
+
+let total=
+cuota*plazo;
+
+let intereses=
+total-monto;
+
+document.getElementById("cuotaCredito").innerHTML=
+"$"+cuota.toFixed(2)+" / mes";
+
+document.getElementById("resultadoCredito").innerHTML=
+
+"💰 Monto solicitado: $"+
+monto.toFixed(2)+
+
+"<br>📅 Plazo: "+
+plazo+
+" meses"+
+
+"<br>📈 Tasa utilizada: "+
+tasa.toFixed(2)+
+"% anual"+
+
+"<br>💵 Intereses aproximados: $"+
+intereses.toFixed(2)+
+
+"<br>🏦 Total aproximado a pagar: $"+
+total.toFixed(2);
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+let tipoSelect=
+document.getElementById("tipoCredito");
+
+let tipo=
+tipoSelect.options[
+tipoSelect.selectedIndex
+].text;
+
+let mensaje=
+"Hola, quiero información sobre un crédito en SUCHICOOP.%0A%0A"+
+"Tipo de crédito: "+tipo+"%0A"+
+"Monto simulado: $"+monto.toFixed(2)+"%0A"+
+"Plazo: "+plazo+" meses%0A"+
+"Tasa utilizada para la simulación: "+tasa.toFixed(2)+"%%0A"+
+"Cuota aproximada: $"+cuota.toFixed(2)+" mensuales.%0A%0A"+
+"Quisiera conocer los requisitos y condiciones.";
+
+let enlace=
+"https://wa.me/50376558874?text="+mensaje;
+
+let boton=
+document.getElementById("whatsappCredito");
+
+boton.href=enlace;
+
+boton.style.display="inline-block";
+
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+function toggleFAQ(button){
+
+const item=
+button.parentElement;
+
+const estabaActivo=
+item.classList.contains("active");
+
+
+document.querySelectorAll(".faq-item")
+.forEach(function(element){
+
+element.classList.remove("active");
+
+});
+
+
+if(!estabaActivo){
+
+item.classList.add("active");
+
+}
+
+}
+
+
+/* =========================
+   INICIALIZAR TASA
+========================= */
+
+actualizarTasaCredito();
+
 </script>
+
 
 </body>
 </html>
